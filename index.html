@@ -1,0 +1,154 @@
+
+<style>
+
+html {
+box-sizing: border-box;
+}
+
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+body {
+margin: 0;
+padding: 0;
+font:300 1.6vw/1.6 "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+
+img,video {
+border:0;
+display: block;
+max-width: 100%;
+}
+
+h1 {
+color: #fff;
+position: absolute;
+z-index: 1;
+text-align: center;
+top: 50%;
+transform: translateY(-60%);
+width: 100%;
+font-size: 5vw;
+font-weight: normal;
+line-height: 1;
+}
+
+h1 b {
+display: block;
+}
+
+.video-container {
+position: relative;
+padding-top: 30px; 
+overflow: hidden;
+padding-bottom: 40%;
+height: auto;
+background: black;
+}
+
+
+
+.video-container.active #video {
+transition: all 150ms ease-in-out;
+opacity: 0.3;
+}
+
+.video-container video, .video-container img {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+/* height: 100%; */
+opacity: 0.6;
+}
+
+#button {
+opacity: 0.5;
+position: absolute;
+bottom: 2vw;
+width: 2.5vw;
+right: 2vw;
+height: 2.5vw;
+border: 0;
+background-color: #009FD9;
+border-radius: 2px;
+cursor: pointer;
+font-size: 1.5vw;
+color: #fff;
+transition: all 350ms ease-in-out;
+transform: scale(0.9);
+background-position: center;
+background-size: 25%;
+background-repeat: no-repeat;
+background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABQAQMAAACDEa/aAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABFJREFUKM9j+P//xygexQOFAVmQ2dAaCQcwAAAAAElFTkSuQmCC");
+}
+
+.video-container:hover #button, #button:focus {
+transform: scale(1.2);
+opacity: 1;
+}
+
+
+.video-container.active #button {
+background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABgAQMAAACJwtYYAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAMdJREFUOMtF06FxxEAMhWGVkBJcimDK2hJUwpUSuPBKMFhgmNEYnG/2VpkYvF/oI/8IPfsy3QETTrhcrIAHTDibWA4DHjDhbGI5DDhgwtnEchhwwDecTSyDAQd8w9nE2uATDvi6SVd0RVd0RVd0pU58wgEvuJpYG/yBO3xBWDsM6OLkRfJ4hyEuF6eJCQ8Y4nLxY2LCDkNcLn5MTNhhu0llVDcTdtjE5eJl4i/s8CFqUP+VeMIOHyIzpLI6YYebuCS74Am/IdUfqsf2gxHDS4AAAAAASUVORK5CYII=");
+}
+
+</style>
+
+<div class="video-container">
+
+	<h1>Curabitur non <b>suspendisse</b></h1>
+
+	<video id="video" poster="http://via.placeholder.com/1280x720" loop autoplay>
+
+  		<source src="video-test.mp4" type="video/mp4">
+		
+		<picture>
+        
+            <source srcset="http://via.placeholder.com/1280x720" media="(min-width: 800px)">
+            <source srcset="http://via.placeholder.com/800x450">
+            <img src="https://via.placeholder.com/1280x720" alt="">
+            
+        </picture>
+
+	</video>
+
+</div>
+
+<h2>Demo</h2>
+
+<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+
+$(".video-container").append('<button id="button" aria-label="Pause Video"></button>');
+
+$("#button").on("click", function(){
+
+	if($(".video-container").hasClass("active")) {
+
+		$("#video").get(0).play();
+		$(".video-container").removeClass("active");
+		$(this).attr("aria-label", "Pause Video");
+	
+	} else {
+	
+		$("#video").get(0).pause();
+		$(".video-container").addClass("active");
+		$(this).attr("aria-label", "Play Video");
+	
+	}
+
+});
+
+
+
+
+
+
+
+
+</script>

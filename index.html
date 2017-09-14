@@ -193,7 +193,7 @@
 		var button = document.createElement("button");
 		button.id = "hero-banner-button";
 
-		if(heroBannerActive = "true") {
+		if(heroBannerActive == "true") {
 
 			heroBannerVideo.pause();
 			heroBanner.classList.add("active");
@@ -216,7 +216,7 @@
 				heroBanner.classList.remove("active");
 				this.setAttribute("aria-label", "Pause Background Video");
 
-				document.cookie = "heroBannerActive=false";
+				document.cookie = "heroBannerActive=true";
 
 			} else {
 

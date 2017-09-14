@@ -1,0 +1,7 @@
+*~
+*.gem
+*.lock
+*.swp
+.DS_Store
+.ruby-version
+.sass-cache

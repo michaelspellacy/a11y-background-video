@@ -1,4 +1,4 @@
-// A11y Background Video
+// Accessible Background Video
 // Developer: Michael "Spell" Spellacy, Developer: Michael "Spell" Spellacy. Twitter: @spellacy, GitHub: michaelspellacy
 
 if(document.getElementById("hero-banner-video")) {

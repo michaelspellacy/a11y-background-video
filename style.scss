@@ -1,0 +1,132 @@
+	html {
+	box-sizing: border-box;
+	}
+
+	*, *:before, *:after {
+	box-sizing: inherit;
+	}
+
+	body {
+	font: 300 100%/1.6 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,"Lucida Grande", sans-serif;
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: auto;
+	font-smooth: auto;
+	}
+
+	img, video {
+	border:0;
+	display: block;
+	max-width: 100%;
+	}
+
+	main {
+	padding: 1em;
+	font-size: 0.9rem;
+	}
+
+	#hero-banner-heading {
+	color: #fff;
+	font-size: 5vw;
+	font-weight: normal;
+	line-height: 1;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-60%);
+	width: 100%;
+	z-index: 1;
+	}
+
+	#hero-banner-heading b {
+	display: block;
+	}
+
+	#hero-banner {
+	background: black;
+	height: auto; 
+	overflow: hidden;
+	padding-bottom: 40%;
+	padding-top: 30px;
+	position: relative;
+	margin: -1em -1em 0;
+	}
+
+	#hero-banner-video {
+	display: none;
+	}
+
+	#hero-banner.active #hero-banner-video {
+	opacity: 0.2;
+	transition: all 150ms ease-in-out;
+	}
+
+	#hero-banner-video, #hero-banner-image  {
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	opacity: 0.6;
+	}
+
+	#hero-banner-button {
+	background-color: #009FD9;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABQAQMAAACDEa/aAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABFJREFUKM9j+P//xygexQOFAVmQ2dAaCQcwAAAAAElFTkSuQmCC");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25%;
+	border: 0;
+	border-radius: 2px;
+	bottom: 2vw;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-size: 1.5vw;
+	height: 3.5vw;
+	opacity: 0.5;
+	position: absolute;
+	right: 2vw;
+	transform: scale(0.9);
+	width: 3.5vw;
+	}
+
+	#hero-banner:hover #hero-banner-button, #hero-banner #hero-banner-button:focus {
+	opacity: 1;
+	transition: all 350ms ease-in-out;
+	transform: scale(1.2);
+	}
+
+	#hero-banner.active #hero-banner-button {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABgAQMAAACJwtYYAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAMdJREFUOMtF06FxxEAMhWGVkBJcimDK2hJUwpUSuPBKMFhgmNEYnG/2VpkYvF/oI/8IPfsy3QETTrhcrIAHTDibWA4DHjDhbGI5DDhgwtnEchhwwDecTSyDAQd8w9nE2uATDvi6SVd0RVd0RVd0pU58wgEvuJpYG/yBO3xBWDsM6OLkRfJ4hyEuF6eJCQ8Y4nLxY2LCDkNcLn5MTNhhu0llVDcTdtjE5eJl4i/s8CFqUP+VeMIOHyIzpLI6YYebuCS74Am/IdUfqsf2gxHDS4AAAAAASUVORK5CYII=");
+	}
+
+	@media (min-width: 64em){
+
+		main {
+		font-size: 1.6vw;
+		}
+
+		#hero-banner-video + #hero-banner-image {
+		display: none;
+		}
+
+		#hero-banner-video, #hero-banner-button {
+		display: block;
+		}
+
+	}
+
+	/* A11y */
+
+	@media (prefers-reduced-motion: reduce) { 
+
+		#hero-banner-video + #hero-banner-image {
+		display: block;
+		}
+
+		#hero-banner-video, #hero-banner-button {
+		display: none;
+		}
+
+	}

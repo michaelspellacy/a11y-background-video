@@ -1,154 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
 
-<style>
-
-html {
-box-sizing: border-box;
-}
-
-*, *:before, *:after {
-box-sizing: inherit;
-}
-
-body {
-margin: 0;
-padding: 0;
-font:300 1.6vw/1.6 "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-}
-
-img,video {
-border:0;
-display: block;
-max-width: 100%;
-}
-
-h1 {
-color: #fff;
-position: absolute;
-z-index: 1;
-text-align: center;
-top: 50%;
-transform: translateY(-60%);
-width: 100%;
-font-size: 5vw;
-font-weight: normal;
-line-height: 1;
-}
-
-h1 b {
-display: block;
-}
-
-.video-container {
-position: relative;
-padding-top: 30px; 
-overflow: hidden;
-padding-bottom: 40%;
-height: auto;
-background: black;
-}
-
-
-
-.video-container.active #video {
-transition: all 150ms ease-in-out;
-opacity: 0.3;
-}
-
-.video-container video, .video-container img {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-/* height: 100%; */
-opacity: 0.6;
-}
-
-#button {
-opacity: 0.5;
-position: absolute;
-bottom: 2vw;
-width: 2.5vw;
-right: 2vw;
-height: 2.5vw;
-border: 0;
-background-color: #009FD9;
-border-radius: 2px;
-cursor: pointer;
-font-size: 1.5vw;
-color: #fff;
-transition: all 350ms ease-in-out;
-transform: scale(0.9);
-background-position: center;
-background-size: 25%;
-background-repeat: no-repeat;
-background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABQAQMAAACDEa/aAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABFJREFUKM9j+P//xygexQOFAVmQ2dAaCQcwAAAAAElFTkSuQmCC");
-}
-
-.video-container:hover #button, #button:focus {
-transform: scale(1.2);
-opacity: 1;
-}
-
-
-.video-container.active #button {
-background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABgAQMAAACJwtYYAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAMdJREFUOMtF06FxxEAMhWGVkBJcimDK2hJUwpUSuPBKMFhgmNEYnG/2VpkYvF/oI/8IPfsy3QETTrhcrIAHTDibWA4DHjDhbGI5DDhgwtnEchhwwDecTSyDAQd8w9nE2uATDvi6SVd0RVd0RVd0pU58wgEvuJpYG/yBO3xBWDsM6OLkRfJ4hyEuF6eJCQ8Y4nLxY2LCDkNcLn5MTNhhu0llVDcTdtjE5eJl4i/s8CFqUP+VeMIOHyIzpLI6YYebuCS74Am/IdUfqsf2gxHDS4AAAAAASUVORK5CYII=");
-}
-
-</style>
-
-<div class="video-container">
-
-	<h1>Curabitur non <b>suspendisse</b></h1>
-
-	<video id="video" poster="http://via.placeholder.com/1280x720" loop autoplay>
-
-  		<source src="video-test.mp4" type="video/mp4">
-		
-		<picture>
-        
-            <source srcset="http://via.placeholder.com/1280x720" media="(min-width: 800px)">
-            <source srcset="http://via.placeholder.com/800x450">
-            <img src="https://via.placeholder.com/1280x720" alt="">
-            
-        </picture>
-
-	</video>
-
-</div>
-
-<h2>Demo</h2>
-
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-<script>
-
-$(".video-container").append('<button id="button" aria-label="Pause Video"></button>');
-
-$("#button").on("click", function(){
-
-	if($(".video-container").hasClass("active")) {
-
-		$("#video").get(0).play();
-		$(".video-container").removeClass("active");
-		$(this).attr("aria-label", "Pause Video");
-	
-	} else {
-	
-		$("#video").get(0).pause();
-		$(".video-container").addClass("active");
-		$(this).attr("aria-label", "Play Video");
-	
+	html {
+	box-sizing: border-box;
 	}
 
-});
+	*, *:before, *:after {
+	box-sizing: inherit;
+	}
 
+	body {
+	font: 300 100%/1.6 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,"Lucida Grande", sans-serif;
+	margin: 0;
+	padding: 0;
+	}
 
+	img, video {
+	border:0;
+	display: block;
+	max-width: 100%;
+	}
 
+	main {
+	padding: 1em;
+	font-size: 0.9rem;
+	}
 
+	#hero-banner-heading {
+	color: #fff;
+	font-size: 5vw;
+	font-weight: normal;
+	line-height: 1;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translateY(-60%);
+	width: 100%;
+	z-index: 1;
+	}
 
+	#hero-banner-heading b {
+	display: block;
+	}
 
+	#hero-banner {
+	background: black;
+	height: auto; 
+	overflow: hidden;
+	padding-bottom: 40%;
+	padding-top: 30px;
+	position: relative;
+	margin: -1em -1em 0;
+	}
 
+	#hero-banner-video {
+	display: none;
+	}
 
-</script>
+	#hero-banner.active #hero-banner-video {
+	opacity: 0.2;
+	transition: all 150ms ease-in-out;
+	}
+
+	#hero-banner-video, #hero-banner-image  {
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	opacity: 0.6;
+	}
+
+	#hero-banner-button {
+	background-color: #009FD9;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABQAQMAAACDEa/aAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABFJREFUKM9j+P//xygexQOFAVmQ2dAaCQcwAAAAAElFTkSuQmCC");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25%;
+	border: 0;
+	border-radius: 2px;
+	bottom: 2vw;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-size: 1.5vw;
+	height: 3.5vw;
+	opacity: 0.5;
+	position: absolute;
+	right: 2vw;
+	transform: scale(0.9);
+	width: 3.5vw;
+	}
+
+	#hero-banner:hover #hero-banner-button, #hero-banner #hero-banner-button:focus {
+	opacity: 1;
+	transition: all 350ms ease-in-out;
+	transform: scale(1.2);
+	}
+
+	#hero-banner.active #button {
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABgAQMAAACJwtYYAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAMdJREFUOMtF06FxxEAMhWGVkBJcimDK2hJUwpUSuPBKMFhgmNEYnG/2VpkYvF/oI/8IPfsy3QETTrhcrIAHTDibWA4DHjDhbGI5DDhgwtnEchhwwDecTSyDAQd8w9nE2uATDvi6SVd0RVd0RVd0pU58wgEvuJpYG/yBO3xBWDsM6OLkRfJ4hyEuF6eJCQ8Y4nLxY2LCDkNcLn5MTNhhu0llVDcTdtjE5eJl4i/s8CFqUP+VeMIOHyIzpLI6YYebuCS74Am/IdUfqsf2gxHDS4AAAAAASUVORK5CYII=");
+	}
+
+	@media (min-width: 64em){
+
+		main {
+		font-size: 1.6vw;
+		}
+
+		#hero-banner-video + #hero-banner-image {
+		display: none;
+		}
+
+		#hero-banner-video, #hero-banner-button {
+		display: block;
+		}
+
+	}
+
+	</style>
+    <title>Accessible Background Video by Michael "Spell" Spellacy</title>
+</head>
+
+<body>
+
+	<main>
+
+		<div id="hero-banner">
+
+			<h1 id="hero-banner-heading">Curabitur non <b>suspendisse</b></h1>
+
+			<video id="hero-banner-video" muted loop autoplay>
+
+	  			<source src="hero-banner-video.mp4" type="video/mp4">
+	  			<img id="hero-banner-image" src="hero-banner-image.png" alt="">
+
+			</video>
+
+			<img id="hero-banner-image" src="hero-banner-image.png" alt="">
+
+		</div>
+
+		<h2>Accessible Background Video by Michael "Spell" Spellacy</h2>
+
+		<p><a href="https://github.com/michaelspellacy/a11y-background-video">Check out the repo</a> or <a href="https://github.com/michaelspellacy/a11y-background-video/archive/master.zip">download it</a>.</p>
+
+		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+
+		<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+
+		<p>Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis.</p>
+
+		<p>Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis.</p>
+
+		<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+
+	</main>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script>
+
+	if($("#hero-banner-video").length) {
+
+		$("#hero-banner").append('<button id="hero-banner-button" aria-label="Pause Video"></button>');
+
+		$("#hero-banner-button").on("click", function(){
+
+			if($("#hero-banner").hasClass("active")) {
+
+				$("#hero-banner-video").get(0).play();
+				$("#hero-banner").removeClass("active");
+				$(this).attr("aria-label", "Pause Video");
+			
+			} else {
+			
+				$("#hero-banner-video").get(0).pause();
+				$("#hero-banner").addClass("active");
+				$(this).attr("aria-label", "Play Video");
+			
+			}
+
+		});
+
+	}
+
+	</script>
+
+</body>
+</html>

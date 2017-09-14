@@ -20,6 +20,9 @@ img, video {
 main {
   padding: 1em;
   font-size: 0.9rem; }
+  @media (min-width: 64em) {
+    main {
+      font-size: 1.6vw; } }
 
 #hero-banner-heading {
   color: #fff;
@@ -32,9 +35,8 @@ main {
   transform: translateY(-60%);
   width: 100%;
   z-index: 1; }
-
-#hero-banner-heading b {
-  display: block; }
+  #hero-banner-heading b {
+    display: block; }
 
 #hero-banner {
   background: black;
@@ -47,10 +49,9 @@ main {
 
 #hero-banner-video {
   display: none; }
-
-#hero-banner.active #hero-banner-video {
-  opacity: 0.2;
-  transition: all 150ms ease-in-out; }
+  .active #hero-banner-video {
+    opacity: 0.2;
+    transition: all 150ms ease-in-out; }
 
 #hero-banner-video, #hero-banner-image {
   left: 0;
@@ -78,25 +79,19 @@ main {
   right: 2vw;
   transform: scale(0.9);
   width: 3.5vw; }
-
-#hero-banner:hover #hero-banner-button, #hero-banner #hero-banner-button:focus {
-  opacity: 1;
-  transition: all 350ms ease-in-out;
-  transform: scale(1.2); }
-
-#hero-banner.active #hero-banner-button {
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABgAQMAAACJwtYYAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAMdJREFUOMtF06FxxEAMhWGVkBJcimDK2hJUwpUSuPBKMFhgmNEYnG/2VpkYvF/oI/8IPfsy3QETTrhcrIAHTDibWA4DHjDhbGI5DDhgwtnEchhwwDecTSyDAQd8w9nE2uATDvi6SVd0RVd0RVd0pU58wgEvuJpYG/yBO3xBWDsM6OLkRfJ4hyEuF6eJCQ8Y4nLxY2LCDkNcLn5MTNhhu0llVDcTdtjE5eJl4i/s8CFqUP+VeMIOHyIzpLI6YYebuCS74Am/IdUfqsf2gxHDS4AAAAAASUVORK5CYII="); }
+  #hero-banner:hover #hero-banner-button, #hero-banner-button:focus {
+    opacity: 1;
+    transition: all 350ms ease-in-out;
+    transform: scale(1.2); }
+  .active #hero-banner-button {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABgAQMAAACJwtYYAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAMdJREFUOMtF06FxxEAMhWGVkBJcimDK2hJUwpUSuPBKMFhgmNEYnG/2VpkYvF/oI/8IPfsy3QETTrhcrIAHTDibWA4DHjDhbGI5DDhgwtnEchhwwDecTSyDAQd8w9nE2uATDvi6SVd0RVd0RVd0pU58wgEvuJpYG/yBO3xBWDsM6OLkRfJ4hyEuF6eJCQ8Y4nLxY2LCDkNcLn5MTNhhu0llVDcTdtjE5eJl4i/s8CFqUP+VeMIOHyIzpLI6YYebuCS74Am/IdUfqsf2gxHDS4AAAAAASUVORK5CYII="); }
 
 @media (min-width: 64em) {
-  main {
-    font-size: 1.6vw; }
-
   #hero-banner-video + #hero-banner-image {
     display: none; }
 
   #hero-banner-video, #hero-banner-button {
     display: block; } }
-/* A11y */
 @media (prefers-reduced-motion: reduce) {
   #hero-banner-video + #hero-banner-image {
     display: block; }

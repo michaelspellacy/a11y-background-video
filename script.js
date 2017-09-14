@@ -22,6 +22,8 @@ if(document.getElementById("hero-banner-video")) {
 	var button = document.createElement("button");
 	button.id = "hero-banner-button";
 
+	// Check Cookie. If set to true, pause video.
+
 	if(heroBannerActive == "true") {
 
 		heroBannerVideo.pause();
@@ -35,6 +37,8 @@ if(document.getElementById("hero-banner-video")) {
 	}
 
 	heroBanner.appendChild(button);
+
+	// Play/Pause Button Event
 
 	button.onclick = function(){
 

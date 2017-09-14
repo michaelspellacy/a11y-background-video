@@ -178,12 +178,6 @@
 
 	if(document.getElementById("hero-banner-video")) {
 
-		var heroBannerActive = getCookie("heroBannerActive");
-		var heroBanner = document.getElementById("hero-banner");
-		var heroBannerVideo = document.getElementById("hero-banner-video");
-		var heroBannerPlay = "Play Background Video";
-		var heroBannerPause = "Pause Background Video";
-
 		function getCookie(name) {
 
 			var re = new RegExp(name + "=([^;]+)");
@@ -191,6 +185,14 @@
 			return (value != null) ? unescape(value[1]) : null;
 
 		}
+
+		var heroBannerActive = getCookie("heroBannerActive");
+		var heroBanner = document.getElementById("hero-banner");
+		var heroBannerVideo = document.getElementById("hero-banner-video");
+		var heroBannerPlay = "Play Background Video";
+		var heroBannerPause = "Pause Background Video";
+
+		// Create Play/Pause Button
 
 		var button = document.createElement("button");
 		button.id = "hero-banner-button";

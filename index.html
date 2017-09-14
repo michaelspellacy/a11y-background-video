@@ -193,12 +193,14 @@
 				heroBannerVideo.play();
 				heroBanner.classList.remove("active");
 				button.setAttribute("aria-label", "Pause Background Video");
+				document.cookie = "heroBannerActive=false";
 
 			} else {
 
 				heroBannerVideo.pause();
 				heroBanner.classList.add("active");
 				button.setAttribute("aria-label", "Play Background Video");
+				document.cookie = "heroBannerActive=true";
 
 			}
 

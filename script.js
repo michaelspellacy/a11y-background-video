@@ -1,8 +1,6 @@
 // Accessible Background Video
 // Developer: Michael "Spell" Spellacy, Developer: Michael "Spell" Spellacy. Twitter: @spellacy, GitHub: michaelspellacy
 
-// Test me
-
 if(document.getElementById("hero-banner-video")) {
 
 	function getCookie(name) {

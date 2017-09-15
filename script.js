@@ -1,6 +1,8 @@
 // Accessible Background Video
 // Developer: Michael "Spell" Spellacy, Developer: Michael "Spell" Spellacy. Twitter: @spellacy, GitHub: michaelspellacy
 
+// Test me
+
 if(document.getElementById("hero-banner-video")) {
 
 	function getCookie(name) {
@@ -28,12 +30,12 @@ if(document.getElementById("hero-banner-video")) {
 
 		heroBannerVideo.pause();
 		heroBanner.classList.add("active");
-		button.setAttribute("aria-label", heroBannerPlay);			
+		button.setAttribute("aria-label", heroBannerPlay);
 
 	} else {
 
 		button.setAttribute("aria-label", heroBannerPause);
-		
+
 	}
 
 	heroBanner.appendChild(button);

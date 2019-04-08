@@ -52,7 +52,7 @@ if(document.getElementById("hero-banner-video")) {
 
 	// Check Cookie. If set to true, pause video.
 
-	if(heroBannerActive === null || window.matchMedia("(prefers-reduced-motion)")) {
+	if(heroBannerActive !== null || window.matchMedia("(prefers-reduced-motion)")) {
 
 		heroBannerVideo.pause();
 		heroBanner.classList.add("active");

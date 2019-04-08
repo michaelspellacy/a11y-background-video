@@ -14,8 +14,36 @@ if(document.getElementById("hero-banner-video")) {
 	var heroBannerActive = getCookie("heroBannerActive");
 	var heroBanner = document.getElementById("hero-banner");
 	var heroBannerVideo = document.getElementById("hero-banner-video");
-	var heroBannerPlay = "Play Background Video";
-	var heroBannerPause = "Pause Background Video";
+	var heroBannerMedia = heroBannerVideo.getAttribute("data-banner-media");
+	var heroBannerDesktop = heroBannerVideo.getAttribute("data-banner-desktop");
+	var heroBannerDefault = heroBannerVideo.firstElementChild.src;
+	var heroBannerPlay = "Play Video";
+	var heroBannerPause = "Pause Video";
+
+	function viewPortWidth(mediaQuery) {
+
+		if (mediaQuery.matches) {
+
+			heroBannerVideo.firstElementChild.src = heroBannerDesktop;
+
+		} else {
+
+			heroBannerVideo.firstElementChild.src = heroBannerDefault;
+
+		}
+
+		heroBannerVideo.load();
+		heroBannerVideo.play();
+
+	}
+
+	if (matchMedia) {
+
+		const mediaQuery = window.matchMedia(heroBannerMedia);
+		mediaQuery.addListener(viewPortWidth);
+		viewPortWidth(mediaQuery);
+
+	}
 
 	// Create Play/Pause Button
 
@@ -24,7 +52,7 @@ if(document.getElementById("hero-banner-video")) {
 
 	// Check Cookie. If set to true, pause video.
 
-	if(heroBannerActive == "true") {
+	if(heroBannerActive === null || window.matchMedia("(prefers-reduced-motion)")) {
 
 		heroBannerVideo.pause();
 		heroBanner.classList.add("active");
@@ -56,7 +84,7 @@ if(document.getElementById("hero-banner-video")) {
 			heroBanner.classList.add("active");
 			this.setAttribute("aria-label", heroBannerPlay);
 
-			document.cookie = "heroBannerActive=true";
+			document.cookie = "heroBannerActive=true; Secure; path=/";
 
 		}
 

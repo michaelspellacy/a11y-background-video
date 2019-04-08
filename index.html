@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
     <link rel="stylesheet" href="style.css">
     <title>Accessible Background Video by Michael "Spell" Spellacy</title>
 </head>
@@ -15,16 +15,11 @@
 
 			<h1 id="hero-banner-heading">Curabitur non <b>suspendisse</b></h1>
 
-			<video id="hero-banner-video" muted loop autoplay>
+			<video id="hero-banner-video" data-banner-desktop="hero-banner-video-lg.mp4" data-banner-media="(min-width:778px)" autoplay muted loop>
 
-	  			<source src="hero-banner-video.mp4" type="video/mp4">
-          <!-- track kind="captions" label="English" src="hero-banner-video.vtt" srclang="en">
-          <track kind="descriptions" label="English" src="hero-banner-video.vtt" srclang="en" -->
-	  			<img src="hero-banner-image.png" alt="">
+	  			<source src="hero-banner-video-sm.mp4" type="video/mp4">
 
 			</video>
-
-			<img id="hero-banner-image" src="hero-banner-image.png" alt="">
 
 		</div>
 

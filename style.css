@@ -47,13 +47,11 @@ main {
   position: relative;
   margin: -1em -1em 0; }
 
-#hero-banner-video {
-  display: none; }
-  .active #hero-banner-video {
-    opacity: 0.2;
-    transition: all 150ms ease-in-out; }
+.active #hero-banner-video {
+  opacity: 0.2;
+  transition: all 150ms ease-in-out; }
 
-#hero-banner-video, #hero-banner-image {
+#hero-banner-video {
   left: 0;
   position: absolute;
   top: 0;
@@ -70,8 +68,6 @@ main {
   border-radius: 2px;
   bottom: 2vw;
   color: #fff;
-  cursor: pointer;
-  display: none;
   font-size: 1.5vw;
   height: 3.5vw;
   opacity: 0.5;
@@ -88,15 +84,6 @@ main {
 
 @media (min-width: 64em) {
   #hero-banner-video + #hero-banner-image {
-    display: none; }
-
-  #hero-banner-video, #hero-banner-button {
-    display: block; } }
-@media (prefers-reduced-motion: reduce) {
-  #hero-banner-video + #hero-banner-image {
-    display: block; }
-
-  #hero-banner-video, #hero-banner-button {
     display: none; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -61,15 +61,23 @@ if(document.getElementById("hero-banner-video")) {
 
 	// Check Cookie. If set to true, pause video.
 
+	function pauseVideo() {
+
+		heroBannerVideo.pause();
+		heroBanner.classList.add("active");
+		button.setAttribute("aria-label", heroBannerPlay);
+
+	}
+
+	if (window.matchMedia("(prefers-reduced-motion)")) {
+
+		pauseVideo();
+
+	}
+
 	if(heroBannerActive !== null) {
 
-		if (window.matchMedia("(prefers-reduced-motion)")) {
-
-			heroBannerVideo.pause();
-			heroBanner.classList.add("active");
-			button.setAttribute("aria-label", heroBannerPlay);
-
-		}
+		pauseVideo();
 
 	} else {
 

@@ -65,19 +65,17 @@ main {
   background-repeat: no-repeat;
   background-size: 25%;
   border: 0;
-  border-radius: 2px;
+  border-radius: 5px;
   bottom: 2vw;
-  color: #fff;
-  height: 40px;
+  height: 35px;
   opacity: 0.5;
   position: absolute;
   right: 2vw;
   transform: scale(0.9);
-  width: 40px; }
+  width: 35px; }
   #hero-banner:hover #hero-banner-button, #hero-banner-button:focus {
     opacity: 1;
-    transition: all 350ms ease-in-out;
-    transform: scale(1.2); }
+    transition: all 350ms ease-in-out; }
   .active #hero-banner-button {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAABgAQMAAACJwtYYAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAMdJREFUOMtF06FxxEAMhWGVkBJcimDK2hJUwpUSuPBKMFhgmNEYnG/2VpkYvF/oI/8IPfsy3QETTrhcrIAHTDibWA4DHjDhbGI5DDhgwtnEchhwwDecTSyDAQd8w9nE2uATDvi6SVd0RVd0RVd0pU58wgEvuJpYG/yBO3xBWDsM6OLkRfJ4hyEuF6eJCQ8Y4nLxY2LCDkNcLn5MTNhhu0llVDcTdtjE5eJl4i/s8CFqUP+VeMIOHyIzpLI6YYebuCS74Am/IdUfqsf2gxHDS4AAAAAASUVORK5CYII="); }
 

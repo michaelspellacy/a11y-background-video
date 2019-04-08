@@ -90,21 +90,19 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: 25%;
 border: 0;
-border-radius: 2px;
+border-radius: 5px;
 bottom: 2vw;
-color: #fff;
-height: 40px;
+height: 35px;
 opacity: 0.5;
 position: absolute;
 right: 2vw;
 transform: scale(0.9);
-width: 40px;
+width: 35px;
 
 	#hero-banner:hover &, &:focus {
 
 		opacity: 1;
 		transition: all 350ms ease-in-out;
-		transform: scale(1.2);
 
 	}
 

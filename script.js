@@ -32,18 +32,17 @@ if(document.getElementById("hero-banner-video")) {
 
 		}
 
-			heroBannerVideo.load();
+		heroBannerVideo.load();
 
 		if(heroBannerActive !== null) {
 
+		heroBannerVideo.pause();
 
-			heroBannerVideo.play();
+	} else {
 
-		} else {
+		heroBannerVideo.play();
 
-			heroBannerVideo.pause();
-
-		}
+	}
 
 	}
 

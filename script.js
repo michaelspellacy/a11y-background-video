@@ -76,7 +76,7 @@ if(document.getElementById("hero-banner-video")) {
 			heroBanner.classList.remove("active");
 			this.setAttribute("aria-label", heroBannerPause);
 
-			document.cookie = "heroBannerActive=";
+			document.cookie = "heroBannerActive=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 		} else {
 

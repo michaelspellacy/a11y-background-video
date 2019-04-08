@@ -59,7 +59,7 @@ main {
   opacity: 0.6; }
 
 #hero-banner-button {
-  background-color: #009FD9;
+  background-color: #000;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABQAQMAAACDEa/aAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABFJREFUKM9j+P//xygexQOFAVmQ2dAaCQcwAAAAAElFTkSuQmCC");
   background-position: center;
   background-repeat: no-repeat;

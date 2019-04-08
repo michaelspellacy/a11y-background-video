@@ -32,9 +32,10 @@ if(document.getElementById("hero-banner-video")) {
 
 		}
 
+		heroBannerVideo.load();
+
 		if(heroBannerActive !== null) {
 
-			heroBannerVideo.load();
 			heroBannerVideo.play();
 
 		}

@@ -69,13 +69,10 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
-	const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-	reduceMotion.addEventListener("change", () => {
-
-			pauseVideo();
-
-	});
+	if (window.matchMedia('(prefers-reduced-motion)')) {
+    // Handle JavaScript differently
+    alert("works");
+}
 
 	if(heroBannerActive !== null) {
 

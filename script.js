@@ -63,9 +63,13 @@ if(document.getElementById("hero-banner-video")) {
 
 	if(heroBannerActive !== null) {
 
-		heroBannerVideo.pause();
-		heroBanner.classList.add("active");
-		button.setAttribute("aria-label", heroBannerPlay);
+		if (window.matchMedia("(prefers-reduced-motion)")) {
+
+			heroBannerVideo.pause();
+			heroBanner.classList.add("active");
+			button.setAttribute("aria-label", heroBannerPlay);
+
+		}
 
 	} else {
 

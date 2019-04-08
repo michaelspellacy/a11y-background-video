@@ -32,17 +32,17 @@ if(document.getElementById("hero-banner-video")) {
 
 		}
 
-heroBannerVideo.load();
+		heroBannerVideo.load();
 
 		if(heroBanner.classList.contains("active")) {
 
-		heroBannerVideo.pause();
+			heroBannerVideo.pause();
 
-	} else {
+		} else {
 
-		heroBannerVideo.play();
+			heroBannerVideo.play();
 
-	}
+		}
 
 	}
 
@@ -61,7 +61,7 @@ heroBannerVideo.load();
 
 	// Check Cookie. If set to true, pause video.
 
-	if(heroBannerActive !== null) {
+	if(heroBannerActive !== null || window.matchMedia("(prefers-reduced-motion)")) {
 
 		heroBannerVideo.pause();
 		heroBanner.classList.add("active");

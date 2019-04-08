@@ -68,13 +68,12 @@ main {
   border-radius: 2px;
   bottom: 2vw;
   color: #fff;
-  font-size: 1.5vw;
-  height: 3.5vw;
+  height: 40px;
   opacity: 0.5;
   position: absolute;
   right: 2vw;
   transform: scale(0.9);
-  width: 3.5vw; }
+  width: 40px; }
   #hero-banner:hover #hero-banner-button, #hero-banner-button:focus {
     opacity: 1;
     transition: all 350ms ease-in-out;

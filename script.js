@@ -32,14 +32,14 @@ if(document.getElementById("hero-banner-video")) {
 
 		}
 
-
-
-		if(heroBannerActive !== null) {
 heroBannerVideo.load();
+
+		if(heroBanner.classList.contains("active")) {
+
 		heroBannerVideo.pause();
 
 	} else {
-heroBannerVideo.load();
+
 		heroBannerVideo.play();
 
 	}

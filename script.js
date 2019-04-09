@@ -16,6 +16,7 @@ if(heroBanner) {
 	// Create Video Element
 
 	var newVideo = document.createElement("video");
+	newVideo.setAttribute("playsinline", "");
 	newVideo.id = "hero-banner-video";
 
 	heroBanner.appendChild(newVideo);
@@ -59,6 +60,7 @@ if(heroBanner) {
 
 		heroBannerVideo.loop = true;
 		heroBannerVideo.muted = true;
+		heroBannerVideo.playsinline = true;
 
 		if(heroBanner.classList.contains(heroBannerState)) {
 

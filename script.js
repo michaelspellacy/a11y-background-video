@@ -13,8 +13,6 @@ if(heroBanner) {
 
 	}
 
-
-
 	// Create Video Element
 
 	var newVideo = document.createElement("video");
@@ -59,6 +57,7 @@ if(heroBanner) {
 
 		}
 
+		heroBannerVideo.loop = true;
 		heroBannerVideo.muted = true;
 
 		if(heroBanner.classList.contains(heroBannerState)) {

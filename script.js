@@ -1,7 +1,9 @@
 // Accessible Background Video
 // Developer: Michael "Spell" Spellacy, Developer: Michael "Spell" Spellacy. Twitter: @spellacy, GitHub: michaelspellacy
 
-if(document.getElementById("hero-banner")) {
+var heroBanner = document.getElementById("hero-banner");
+
+if(heroBanner) {
 
 	function getCookie(name) {
 
@@ -11,16 +13,17 @@ if(document.getElementById("hero-banner")) {
 
 	}
 
-	var heroBanner = document.getElementById("hero-banner");
+
 
 	// Create Video Element
 
 	var newVideo = document.createElement("video");
 	newVideo.id = "hero-banner-video";
-	newVideo.setAttribute("autoplay", true);
-	newVideo.setAttribute("playsinline", true);
-	newVideo.setAttribute("muted", true);
-	newVideo.setAttribute("loop", true);
+	newVideo.setAttribute("autoplay", "");
+	newVideo.setAttribute("playsinline", "");
+	newVideo.setAttribute("muted", "");
+	newVideo.setAttribute("loop", "");
+	newVideo.setAttribute("type", "video/mp4");
 
 
 	heroBanner.appendChild(newVideo);
@@ -54,11 +57,11 @@ if(document.getElementById("hero-banner")) {
 
 		if (mediaQuery.matches) {
 
-			heroBannerVideo.src = heroBannerDesktop;
+			heroBannerVideo.setAttribute("src", heroBannerDesktop);
 
 		} else {
 
-			heroBannerVideo.src = heroBannerMobile;
+			heroBannerVideo.setAttribute("src", heroBannerMobile);
 
 		}
 

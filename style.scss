@@ -10,12 +10,16 @@ box-sizing: inherit;
 }
 
 body {
-font: 300 100%/1.6 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,"Lucida Grande", sans-serif;
-margin: 0;
-padding: 0;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: auto;
+font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
 font-smooth: auto;
+font-style: normal;
+font-variant: normal;
+font-size: 100%;
+line-height: 1.8;
+margin: 0;
+text-rendering: auto;
+-moz-osx-font-smoothing: auto;
+-webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -37,8 +41,8 @@ font-weight: normal;
 line-height: 1;
 position: absolute;
 text-align: center;
-top: 50%;
-transform: translateY(-60%);
+top: 40%;
+transform: translateY(-50%);
 width: 100%;
 z-index: 1;
 
@@ -53,7 +57,7 @@ background: black;
 height: auto;
 margin: -1em -1em 0;
 overflow: hidden;
-padding-bottom: 40%;
+padding-bottom: 38%;
 padding-top: 30px;
 position: relative;
 }
@@ -92,6 +96,7 @@ position: absolute;
 right: 20px;
 transform: scale(0.9);
 width: 35px;
+z-index: 999;
 
 	#hero-banner:hover &, &:focus {
 

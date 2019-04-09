@@ -20,6 +20,22 @@ if(document.getElementById("hero-banner-video")) {
 	var heroBannerPlay = "Play Video";
 	var heroBannerPause = "Pause Video";
 
+	function pauseVideo() {
+
+		heroBannerVideo.pause();
+		heroBanner.classList.add("active");
+		button.setAttribute("aria-label", heroBannerPlay);
+
+	}
+
+	function playVideo() {
+
+		heroBannerVideo.play();
+		heroBanner.classList.remove("active");
+		this.setAttribute("aria-label", heroBannerPause);
+
+	}
+
 	function viewPortWidth(mediaQuery) {
 
 		if (mediaQuery.matches) {
@@ -46,24 +62,15 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
-	const mediaQuery = window.matchMedia(heroBannerMedia);
-	mediaQuery.addListener(viewPortWidth);
-	viewPortWidth(mediaQuery);
+	if (heroBannerDesktop !== null) {
 
-	// Create Play/Pause Button
-
-	var button = document.createElement("button");
-	button.id = "hero-banner-button";
-
-	// Check Cookie. If set to true, pause video.
-
-	function pauseVideo() {
-
-		heroBannerVideo.pause();
-		heroBanner.classList.add("active");
-		button.setAttribute("aria-label", heroBannerPlay);
+		const mediaQuery = matchMedia(heroBannerMedia);
+		mediaQuery.addListener(viewPortWidth);
+		viewPortWidth(mediaQuery);
 
 	}
+
+	// Check for prefers-reduced-motion
 
 	function viewportMotion(motionQuery){
 
@@ -79,6 +86,13 @@ if(document.getElementById("hero-banner-video")) {
 	motionQuery.addListener(viewportMotion);
 	viewportMotion(motionQuery);
 
+	// Create Play/Pause Button
+
+	var button = document.createElement("button");
+	button.id = "hero-banner-button";
+
+	// Check Cookie. If set to true, pause video.
+
 	if(heroBannerActive !== null) {
 
 		pauseVideo();
@@ -89,6 +103,8 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
+	// Add Button
+
 	heroBanner.appendChild(button);
 
 	// Play/Pause Button Event
@@ -97,17 +113,13 @@ if(document.getElementById("hero-banner-video")) {
 
 		if (heroBanner.classList.contains("active")) {
 
-			heroBannerVideo.play();
-			heroBanner.classList.remove("active");
-			this.setAttribute("aria-label", heroBannerPause);
+			playVideo();
 
 			document.cookie = "heroBannerActive=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 		} else {
 
-			heroBannerVideo.pause();
-			heroBanner.classList.add("active");
-			this.setAttribute("aria-label", heroBannerPlay);
+			pauseVideo();
 
 			document.cookie = "heroBannerActive=true; Secure; path=/";
 

@@ -1,4 +1,4 @@
-// Accessible Background Video
+// Video Hero Banner
 // Developer: Michael "Spell" Spellacy, Developer: Michael "Spell" Spellacy. Twitter: @spellacy, GitHub: michaelspellacy
 
 html {
@@ -15,39 +15,50 @@ margin: 0;
 padding: 1em;
 }
 
-@keyframes slideInFromLeft {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+// Begin: Video Hero Banner
+
+@keyframes heroBannerFade {
+
+	0% {
+
+		opacity: 0;
+
+	}
+
+	100% {
+
+		opacity: 1;
+
+	}
+
 }
 
 #hero-banner {
-background: black;
-height: auto;
+	opacity: 0;
+	animation: heroBannerFade 300ms 600ms ease-in-out forwards;
+background-color: black; // Change to whatever color you wish. This will bleed in from behind the video. Domminant color for when video is paused.
 margin: -1em -1em 0;
 overflow: hidden;
 padding-bottom: 40%;
 position: relative;
-}
 
-#hero-banner-heading {
-color: white;
-font-size: 5.5vw;
-font-weight: normal;
-line-height: 1.2;
-position: absolute;
-text-align: center;
-top: 50%;
-margin: 0;
-transform: translateY(-50%);
-width: 100%;
-z-index: 1;
+	.hero-banner-heading {
+	color: white;
+	font-size: 5.5vw;
+	font-weight: normal;
+	line-height: 1.2;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	margin: 0;
+	transform: translateY(-50%);
+	width: 100%;
+	z-index: 1;
 
-	b {
-	display: block;
+		b {
+		display: block;
+		}
+
 	}
 
 }
@@ -64,15 +75,14 @@ width: 100%;
 
 	.paused & {
 
-		opacity: 0.6; // State change for when video is paused. Also improves legibility of foreground text.
+		opacity: 0.3; // State change for when video is paused. Also improves legibility of foreground text.
 
 	}
 
 }
 
-// Note: The pause button should never be removed from the UI. This is important accessibility feature.
-// While script does make use of prefers-reduced-motion, we can't fully depend on it yet.
-// There may also be circumstancial events we need to cater to, as well.
+// Note: The pause button should never be removed from the UI. This is an important accessibility feature.
+// While script does make use of prefers-reduced-motion, we can't fully depend on it.
 
 #hero-banner-button {
 background-color: black;
@@ -87,13 +97,13 @@ height: 30px;
 opacity: 0.5;
 position: absolute;
 right: 2vw;
-transition: all 350ms ease-in-out;
 width: 30px;
 z-index: 1;
 
 	#hero-banner:hover &, &:focus {
 
 		opacity: 1;
+		transition: all 350ms ease-in-out;
 
 	}
 
@@ -104,3 +114,5 @@ z-index: 1;
 	}
 
 }
+
+// End: Video Hero Banner

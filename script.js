@@ -19,11 +19,6 @@ if(heroBanner) {
 
 	var newVideo = document.createElement("video");
 	newVideo.id = "hero-banner-video";
-	newVideo.setAttribute("playsinline", "");
-	newVideo.setAttribute("muted", "");
-	newVideo.setAttribute("loop", "");
-	newVideo.setAttribute("type", "video/mp4");
-
 
 	heroBanner.appendChild(newVideo);
 
@@ -64,7 +59,7 @@ if(heroBanner) {
 
 		}
 
-		// heroBannerVideo.load();
+		heroBannerVideo.muted = true;
 
 		if(heroBanner.classList.contains(heroBannerState)) {
 
@@ -72,27 +67,7 @@ if(heroBanner) {
 
 		} else {
 
-
-
-
-			// Show loading animation.
-			  var playPromise = 	heroBannerVideo.play();
-
-			  if (playPromise !== undefined) {
-			    playPromise.then(_ => {
-			      // Automatic playback started!
-			      // Show playing UI.
-			      // We can now safely pause video...
-			      	heroBannerVideo.pause();
-			    })
-			    .catch(error => {
-			      // Auto-play was prevented
-			      // Show paused UI.
-			    });
-			  }
-
-
-
+			heroBannerVideo.play();
 
 		}
 

@@ -66,7 +66,7 @@ if(document.getElementById("hero-banner-video")) {
 	}
 
 
-	viewportMotion(motionQuery){
+	function viewportMotion(motionQuery){
 
 		if (motionQuery.matches) {
 

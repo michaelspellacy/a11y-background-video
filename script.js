@@ -62,13 +62,13 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
-	if (heroBannerDesktop !== null) {
+	// if (heroBannerDesktop !== null) {
 
 		const mediaQuery = matchMedia(heroBannerMedia);
 		mediaQuery.addListener(viewPortWidth);
 		viewPortWidth(mediaQuery);
 
-	}
+	// }
 
 	// Check for prefers-reduced-motion
 

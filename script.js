@@ -11,7 +11,7 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
-	var heroBannerActive = getCookie("heroBannerActive");
+	var heroBannerPaused = getCookie("heroBannerPaused");
 	var heroBanner = document.getElementById("hero-banner");
 	var heroBannerVideo = document.getElementById("hero-banner-video");
 	var heroBannerMedia = heroBannerVideo.getAttribute("data-banner-media");
@@ -19,11 +19,12 @@ if(document.getElementById("hero-banner-video")) {
 	var heroBannerDefault = heroBannerVideo.firstElementChild.src;
 	var heroBannerPlay = "Play Video";
 	var heroBannerPause = "Pause Video";
+	var heroBannerState = "paused";
 
 	function pauseVideo() {
 
 		heroBannerVideo.pause();
-		heroBanner.classList.add("active");
+		heroBanner.classList.add(heroBannerState);
 		button.setAttribute("aria-label", heroBannerPlay);
 
 	}
@@ -31,7 +32,7 @@ if(document.getElementById("hero-banner-video")) {
 	function playVideo() {
 
 		heroBannerVideo.play();
-		heroBanner.classList.remove("active");
+		heroBanner.classList.remove(heroBannerState);
 		button.setAttribute("aria-label", heroBannerPause);
 
 	}
@@ -50,7 +51,7 @@ if(document.getElementById("hero-banner-video")) {
 
 		heroBannerVideo.load();
 
-		if(heroBanner.classList.contains("active")) {
+		if(heroBanner.classList.contains(heroBannerState)) {
 
 			heroBannerVideo.pause();
 
@@ -93,7 +94,7 @@ if(document.getElementById("hero-banner-video")) {
 
 	// Check Cookie. If set to true, pause video.
 
-	if(heroBannerActive !== null) {
+	if(heroBannerPaused !== null) {
 
 		pauseVideo();
 
@@ -111,17 +112,17 @@ if(document.getElementById("hero-banner-video")) {
 
 	button.onclick = function(){
 
-		if (heroBanner.classList.contains("active")) {
+		if (heroBanner.classList.contains(heroBannerState)) {
 
 			playVideo();
 
-			document.cookie = "heroBannerActive=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 		} else {
 
 			pauseVideo();
 
-			document.cookie = "heroBannerActive=true; Secure; path=/";
+			document.cookie = "heroBannerPaused=true; Secure; path=/";
 
 		}
 

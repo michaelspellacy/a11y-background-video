@@ -10,32 +10,13 @@ box-sizing: inherit;
 }
 
 body {
-font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
-font-smooth: auto;
-font-style: normal;
-font-variant: normal;
-font-size: 100%;
-line-height: 1.8;
+font: normal normal normal 100%/1.8 "Open Sans", "Segoe UI", Tahoma, sans-serif;
 margin: 0;
-text-rendering: auto;
--moz-osx-font-smoothing: auto;
--webkit-font-smoothing: antialiased;
-}
-
-main {
 padding: 1em;
-font-size: 0.9rem;
-
-	@media (min-width: 64em){
-
-		font-size: 1.6vw;
-
-	}
-
 }
 
 #hero-banner-heading {
-color: #fff;
+color: white;
 font-size: 6vw;
 font-weight: normal;
 line-height: 1.2;
@@ -62,27 +43,24 @@ padding-top: 30px;
 position: relative;
 }
 
-#hero-banner-video {
+#hero-banner-video  {
+left: 0;
+opacity: 0.6;
+position: absolute;
+top: 0;
+transition: all 150ms ease-in-out;
+width: 100%;
 
-	.active & {
+	.paused & {
 
 		opacity: 0.4;
-		transition: all 150ms ease-in-out;
 
 	}
 
 }
 
-#hero-banner-video  {
-left: 0;
-position: absolute;
-top: 0;
-width: 100%;
-opacity: 0.6;
-}
-
 #hero-banner-button {
-background-color: #000;
+background-color: black;
 background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAABQAQMAAACDEa/aAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABFJREFUKM9j+P//xygexQOFAVmQ2dAaCQcwAAAAAElFTkSuQmCC");
 background-position: center;
 background-repeat: no-repeat;
@@ -94,14 +72,13 @@ height: 35px;
 opacity: 0.5;
 position: absolute;
 right: 2vw;
-transform: scale(0.9);
+transition: all 350ms ease-in-out;
 width: 35px;
 z-index: 999;
 
 	#hero-banner:hover &, &:focus {
 
 		opacity: 1;
-		transition: all 350ms ease-in-out;
 
 	}
 

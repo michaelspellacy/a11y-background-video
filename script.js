@@ -46,13 +46,9 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
-	if (matchMedia) {
-
-		const mediaQuery = window.matchMedia(heroBannerMedia);
-		mediaQuery.addListener(viewPortWidth);
-		viewPortWidth(mediaQuery);
-
-	}
+	const mediaQuery = window.matchMedia(heroBannerMedia);
+	mediaQuery.addListener(viewPortWidth);
+	viewPortWidth(mediaQuery);
 
 	// Create Play/Pause Button
 
@@ -68,11 +64,6 @@ if(document.getElementById("hero-banner-video")) {
 		button.setAttribute("aria-label", heroBannerPlay);
 
 	}
-
-	if (window.matchMedia('(prefers-reduced-motion: reduce)')) {
-    // Handle JavaScript differently
-    alert("works");
-}
 
 	if(heroBannerActive !== null) {
 

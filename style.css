@@ -48,7 +48,7 @@ main {
   margin: -1em -1em 0; }
 
 .active #hero-banner-video {
-  opacity: 0.2;
+  opacity: 0.4;
   transition: all 150ms ease-in-out; }
 
 #hero-banner-video {

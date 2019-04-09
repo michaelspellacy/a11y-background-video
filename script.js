@@ -11,15 +11,23 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
+	// Create Video Element
+
+	var newVideo = document.createElement("video");
+	newVideo.id = "hero-banner-video";
+
+
 	var heroBannerPaused = getCookie("heroBannerPaused");
 	var heroBanner = document.getElementById("hero-banner");
 	var heroBannerVideo = document.getElementById("hero-banner-video");
-	var heroBannerMedia = heroBannerVideo.getAttribute("data-banner-media");
-	var heroBannerDesktop = heroBannerVideo.getAttribute("data-banner-desktop");
-	var heroBannerDefault = heroBannerVideo.firstElementChild.src;
+	var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
+	var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
+	var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
 	var heroBannerPlay = "Play Video";
 	var heroBannerPause = "Pause Video";
 	var heroBannerState = "paused";
+
+	heroBanner.appendChild(heroBannerVideo);
 
 	function pauseVideo() {
 
@@ -41,11 +49,11 @@ if(document.getElementById("hero-banner-video")) {
 
 		if (mediaQuery.matches) {
 
-			heroBannerVideo.firstElementChild.src = heroBannerDesktop;
+			heroBannerVideo.src = heroBannerDesktop;
 
 		} else {
 
-			heroBannerVideo.firstElementChild.src = heroBannerDefault;
+			heroBannerVideo.src = heroBannerMobile;
 
 		}
 
@@ -63,13 +71,9 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
-	if (heroBannerDesktop !== null) {
-
-		const mediaQuery = matchMedia(heroBannerMedia);
-		mediaQuery.addListener(viewPortWidth);
-		viewPortWidth(mediaQuery);
-
-	}
+	const mediaQuery = matchMedia(heroBannerMedia);
+	mediaQuery.addListener(viewPortWidth);
+	viewPortWidth(mediaQuery);
 
 	// Check for prefers-reduced-motion
 

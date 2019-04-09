@@ -15,6 +15,15 @@ margin: 0;
 padding: 1em;
 }
 
+#hero-banner {
+background: black;
+height: auto;
+margin: -1em -1em 0;
+overflow: hidden;
+padding-bottom: 40%;
+position: relative;
+}
+
 #hero-banner-heading {
 color: white;
 font-size: 6vw;
@@ -22,7 +31,8 @@ font-weight: normal;
 line-height: 1.2;
 position: absolute;
 text-align: center;
-top: 40%;
+top: 50%;
+margin: 0;
 transform: translateY(-50%);
 width: 100%;
 z-index: 1;
@@ -33,18 +43,9 @@ z-index: 1;
 
 }
 
-#hero-banner {
-background: black;
-height: auto;
-margin: -1em -1em 0;
-overflow: hidden;
-padding-bottom: 40%;
-position: relative;
-}
-
 #hero-banner-video  {
 left: 0;
-opacity: 0.6;
+opacity: 0.8;
 position: absolute;
 top: 0;
 transition: all 150ms ease-in-out;

@@ -32,7 +32,7 @@ if(document.getElementById("hero-banner-video")) {
 
 		heroBannerVideo.play();
 		heroBanner.classList.remove("active");
-		this.setAttribute("aria-label", heroBannerPause);
+		button.setAttribute("aria-label", heroBannerPause);
 
 	}
 

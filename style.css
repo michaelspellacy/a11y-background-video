@@ -27,7 +27,7 @@ main {
   color: #fff;
   font-size: 6vw;
   font-weight: normal;
-  line-height: 1;
+  line-height: 1.2;
   position: absolute;
   text-align: center;
   top: 40%;
@@ -65,11 +65,11 @@ main {
   background-size: 25%;
   border-radius: 5px;
   border: 0;
-  bottom: 20px;
+  bottom: 2vw;
   height: 35px;
   opacity: 0.5;
   position: absolute;
-  right: 20px;
+  right: 2vw;
   transform: scale(0.9);
   width: 35px;
   z-index: 999; }

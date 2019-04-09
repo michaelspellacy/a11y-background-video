@@ -9,6 +9,11 @@ body {
   margin: 0;
   padding: 1em; }
 
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 #hero-banner {
   background: black;
   height: auto;
@@ -40,7 +45,7 @@ body {
   transition: all 150ms ease-in-out;
   width: 100%; }
   .paused #hero-banner-video {
-    opacity: 0.4; }
+    opacity: 0.6; }
 
 #hero-banner-button {
   background-color: black;

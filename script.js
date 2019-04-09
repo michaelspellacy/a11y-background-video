@@ -21,6 +21,7 @@
 
 		var newVideo = document.createElement("video");
 		newVideo.id = "hero-banner-video";
+		newVideo.setAttribute("aria-label", "Background Animation");
 
 		heroBanner.appendChild(newVideo);
 
@@ -29,15 +30,15 @@
 		var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
 		var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
 		var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
-		var heroBannerPlay = "Play Video";
-		var heroBannerPause = "Pause Video";
+		var heroBannerPlay = "Play Background Animation";
+		var heroBannerPause = "Pause Background Animation";
 		var heroBannerState = "paused";
 
 		function pauseVideo() {
 
 			heroBannerVideo.pause();
 			heroBanner.classList.add(heroBannerState);
-			button.setAttribute("aria-label", heroBannerPlay);
+			herBannerButton.setAttribute("aria-label", heroBannerPlay);
 
 		}
 
@@ -45,7 +46,7 @@
 
 			heroBannerVideo.play();
 			heroBanner.classList.remove(heroBannerState);
-			button.setAttribute("aria-label", heroBannerPause);
+			herBannerButton.setAttribute("aria-label", heroBannerPause);
 
 		}
 
@@ -99,8 +100,8 @@
 
 		// Create Play/Pause Button
 
-		var button = document.createElement("button");
-		button.id = "hero-banner-button";
+		var herBannerButton = document.createElement("button");
+		herBannerButton.id = "hero-banner-button";
 
 		// Check Cookie. If set to true, pause video.
 
@@ -110,23 +111,23 @@
 
 		} else {
 
-			button.setAttribute("aria-label", heroBannerPause);
+			herBannerButton.setAttribute("aria-label", heroBannerPause);
 
 		}
 
 		// Add Button
 
-		heroBanner.appendChild(button);
+		heroBanner.appendChild(herBannerButton);
 
 		// Play/Pause Button Event
 
-		button.onclick = function(){
+		herBannerButton.onclick = function(){
 
 			if (heroBanner.classList.contains(heroBannerState)) {
 
 				playVideo();
 
-				document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+				document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; path=/;";
 
 			} else {
 

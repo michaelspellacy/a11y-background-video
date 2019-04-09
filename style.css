@@ -15,10 +15,10 @@ body {
   100% {
     opacity: 1; } }
 #hero-banner {
-  opacity: 0;
   animation: heroBannerFade 300ms 600ms ease-in-out forwards;
   background-color: black;
   margin: -1em -1em 0;
+  opacity: 0;
   overflow: hidden;
   padding-bottom: 40%;
   position: relative; }
@@ -27,10 +27,10 @@ body {
     font-size: 5.5vw;
     font-weight: normal;
     line-height: 1.2;
+    margin: 0;
     position: absolute;
     text-align: center;
     top: 50%;
-    margin: 0;
     transform: translateY(-50%);
     width: 100%;
     z-index: 1; }
@@ -45,7 +45,7 @@ body {
   transition: all 150ms ease-in-out;
   width: 100%; }
   .paused #hero-banner-video {
-    opacity: 0.3; }
+    opacity: 0.4; }
 
 #hero-banner-button {
   background-color: black;

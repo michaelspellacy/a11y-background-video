@@ -34,10 +34,10 @@ padding: 1em;
 }
 
 #hero-banner {
-	opacity: 0;
-	animation: heroBannerFade 300ms 600ms ease-in-out forwards;
+animation: heroBannerFade 300ms 600ms ease-in-out forwards;
 background-color: black; // Change to whatever color you wish. This will bleed in from behind the video. Domminant color for when video is paused.
 margin: -1em -1em 0;
+opacity: 0;
 overflow: hidden;
 padding-bottom: 40%;
 position: relative;
@@ -47,10 +47,10 @@ position: relative;
 	font-size: 5.5vw;
 	font-weight: normal;
 	line-height: 1.2;
+	margin: 0;
 	position: absolute;
 	text-align: center;
 	top: 50%;
-	margin: 0;
 	transform: translateY(-50%);
 	width: 100%;
 	z-index: 1;
@@ -75,7 +75,7 @@ width: 100%;
 
 	.paused & {
 
-		opacity: 0.3; // State change for when video is paused. Also improves legibility of foreground text.
+		opacity: 0.4; // State change for when video is paused. Also improves legibility of foreground text.
 
 	}
 

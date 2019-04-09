@@ -17,17 +17,19 @@
 
 		}
 
-		// Create Video Element
+		// Create: Video
 
-		var newVideo = document.createElement("video");
-		newVideo.id = "hero-banner-video";
-		newVideo.setAttribute("aria-label", "Background Animation");
+		var heroBannerVideo = document.createElement("video");
 
-		heroBanner.appendChild(newVideo);
+		heroBannerVideo.id = "hero-banner-video";
+		heroBannerVideo.setAttribute("aria-label", "Background Animation");
 
-		var heroBannerPaused = getCookie("heroBannerPaused");
-		var heroBannerVideo = document.getElementById("hero-banner-video");
+		// Add: Video
+
+		heroBanner.appendChild(heroBannerVideo);
+
 		var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
+		var heroBannerAll = heroBanner.getAttribute("data-banner-all");
 		var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
 		var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
 		var heroBannerPlay = "Play Background Animation";
@@ -52,19 +54,35 @@
 
 		function viewPortWidth(mediaQuery) {
 
-			if (mediaQuery.matches) {
+			if(heroBannerAll !== null) {
 
-				heroBannerVideo.setAttribute("src", heroBannerDesktop);
+				heroBannerVideo.setAttribute("src", heroBannerAll);
 
 			} else {
 
-				heroBannerVideo.setAttribute("src", heroBannerMobile);
+				if (mediaQuery.matches) {
+
+					heroBannerVideo.setAttribute("src", heroBannerDesktop);
+
+				} else {
+
+					heroBannerVideo.setAttribute("src", heroBannerMobile);
+
+				}
 
 			}
 
 			heroBannerVideo.loop = true;
 			heroBannerVideo.muted = true;
 			heroBannerVideo.playsinline = true;
+
+			// Since this is decorative, let us disable the video menu.
+
+			heroBannerVideo.oncontextmenu = function(){
+
+				return false;
+
+			};
 
 			if(heroBanner.classList.contains(heroBannerState)) {
 
@@ -82,7 +100,7 @@
 		mediaQuery.addListener(viewPortWidth);
 		viewPortWidth(mediaQuery);
 
-		// Check for prefers-reduced-motion
+		// Check for prefers-reduced-motion (Still WIP)
 
 		function viewportMotion(motionQuery){
 
@@ -98,12 +116,14 @@
 		motionQuery.addListener(viewportMotion);
 		viewportMotion(motionQuery);
 
-		// Create Play/Pause Button
+		// Create: Play/Pause Button
 
 		var herBannerButton = document.createElement("button");
 		herBannerButton.id = "hero-banner-button";
 
 		// Check Cookie. If set to true, pause video.
+
+		var heroBannerPaused = getCookie("heroBannerPaused");
 
 		if(heroBannerPaused !== null) {
 
@@ -115,11 +135,11 @@
 
 		}
 
-		// Add Button
+		// Add: Play/Pause Button
 
 		heroBanner.appendChild(herBannerButton);
 
-		// Play/Pause Button Event
+		// Event: Play/Pause Button
 
 		herBannerButton.onclick = function(){
 

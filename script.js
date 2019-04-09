@@ -20,22 +20,6 @@ if(document.getElementById("hero-banner-video")) {
 	var heroBannerPlay = "Play Video";
 	var heroBannerPause = "Pause Video";
 
-	function pauseVideo() {
-
-		heroBannerVideo.pause();
-		heroBanner.classList.add("active");
-		button.setAttribute("aria-label", heroBannerPlay);
-
-	}
-
-	function playVideo() {
-
-		heroBannerVideo.play();
-		heroBanner.classList.remove("active");
-		button.setAttribute("aria-label", heroBannerPause);
-
-	}
-
 	function viewPortWidth(mediaQuery) {
 
 		if (mediaQuery.matches) {
@@ -90,6 +74,22 @@ if(document.getElementById("hero-banner-video")) {
 
 	var button = document.createElement("button");
 	button.id = "hero-banner-button";
+
+	function pauseVideo() {
+
+		heroBannerVideo.pause();
+		heroBanner.classList.add("active");
+		button.setAttribute("aria-label", heroBannerPlay);
+
+	}
+
+	function playVideo() {
+
+		heroBannerVideo.play();
+		heroBanner.classList.remove("active");
+		button.setAttribute("aria-label", heroBannerPause);
+
+	}
 
 	// Check Cookie. If set to true, pause video.
 

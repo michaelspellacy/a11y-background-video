@@ -1,7 +1,7 @@
 // Accessible Background Video
 // Developer: Michael "Spell" Spellacy, Developer: Michael "Spell" Spellacy. Twitter: @spellacy, GitHub: michaelspellacy
 
-if(document.getElementById("hero-banner-video")) {
+if(document.getElementById("hero-banner")) {
 
 	function getCookie(name) {
 
@@ -11,14 +11,21 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
+	var heroBanner = document.getElementById("hero-banner");
+
 	// Create Video Element
 
 	var newVideo = document.createElement("video");
 	newVideo.id = "hero-banner-video";
+	newVideo.setAttribute("autoplay", true);
+	newVideo.setAttribute("playsinline", true);
+	newVideo.setAttribute("muted", true);
+	newVideo.setAttribute("loop", true);
 
+
+	heroBanner.appendChild(newVideo);
 
 	var heroBannerPaused = getCookie("heroBannerPaused");
-	var heroBanner = document.getElementById("hero-banner");
 	var heroBannerVideo = document.getElementById("hero-banner-video");
 	var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
 	var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
@@ -26,8 +33,6 @@ if(document.getElementById("hero-banner-video")) {
 	var heroBannerPlay = "Play Video";
 	var heroBannerPause = "Pause Video";
 	var heroBannerState = "paused";
-
-	heroBanner.appendChild(heroBannerVideo);
 
 	function pauseVideo() {
 

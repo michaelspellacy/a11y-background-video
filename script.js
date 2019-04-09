@@ -65,22 +65,6 @@ if(document.getElementById("hero-banner-video")) {
 
 	}
 
-
-	function viewportMotion(motionQuery){
-
-		if (motionQuery.matches) {
-
-			alert("supported");
-
-		}
-
-	}
-
-
-	const motionQuery = matchMedia("(prefers-reduced-motion: reduce)");
-	motionQuery.addListener(viewportMotion);
-	viewportMotion(motionQuery);
-
 	if(heroBannerActive !== null) {
 
 		pauseVideo();

@@ -89,7 +89,7 @@ if(heroBanner) {
 
 	}
 
-	const motionQuery = matchMedia("(prefers-reduced-motion: reduce)");
+	const motionQuery = matchMedia("(prefers-reduced-motion)");
 	motionQuery.addListener(viewportMotion);
 	viewportMotion(motionQuery);
 

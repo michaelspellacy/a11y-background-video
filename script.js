@@ -17,7 +17,6 @@ if(heroBanner) {
 
 	var newVideo = document.createElement("video");
 	newVideo.id = "hero-banner-video";
-	newVideo.setAttribute("playsinline", "");
 
 	heroBanner.appendChild(newVideo);
 
@@ -90,7 +89,7 @@ if(heroBanner) {
 
 	}
 
-	const motionQuery = matchMedia("(prefers-reduced-motion)");
+	const motionQuery = matchMedia("(prefers-reduced-motion: reduce)");
 	motionQuery.addListener(viewportMotion);
 	viewportMotion(motionQuery);
 

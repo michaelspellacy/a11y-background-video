@@ -9,8 +9,11 @@
   margin: -1em -1em 0;
   opacity: 0;
   overflow: hidden;
-  padding-bottom: 40%;
+  padding-bottom: 66%;
   position: relative; }
+  @media (min-width: 778px) {
+    #hero-banner {
+      padding-bottom: 40%; } }
   #hero-banner .hero-banner-heading {
     color: white;
     font-size: 5.5vw;
@@ -27,6 +30,8 @@
       display: block; }
   #hero-banner.hero-banner-active #hero-banner-image {
     display: none; }
+  #hero-banner video::-internal-media-controls-overlay-cast-button {
+    display: none; }
 
 #hero-banner-video, #hero-banner-image {
   left: 0;
@@ -37,9 +42,6 @@
   width: 100%; }
   .paused #hero-banner-video, .paused #hero-banner-image {
     opacity: 0.6; }
-
-#hero-banner-video::-internal-media-controls-overlay-cast-button {
-  display: none; }
 
 #hero-banner-button {
   background-color: black;

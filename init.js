@@ -81,13 +81,13 @@ if(heroBanner) {
 
 			playVideo();
 
-			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; path=/;";
 
 		} else {
 
 			pauseVideo();
 
-			document.cookie = "heroBannerPaused=true; path=/";
+			document.cookie = "heroBannerPaused=true; Secure; path=/";
 
 		}
 

@@ -25,8 +25,14 @@ background-color: black; // Change to whatever color you wish. This will bleed i
 margin: -1em -1em 0;
 opacity: 0;
 overflow: hidden;
-padding-bottom: 40%;
+padding-bottom: 66%;
 position: relative;
+
+	@media (min-width: 778px) {
+
+		padding-bottom: 40%;
+
+	}
 
 	.hero-banner-heading {
 	color: white;
@@ -57,6 +63,14 @@ position: relative;
 
 	}
 
+	// We don't need Chromecast icon on banner videos.
+
+	video::-internal-media-controls-overlay-cast-button {
+
+		display: none;
+
+	}
+
 }
 
 #hero-banner-video, #hero-banner-image  {
@@ -74,14 +88,6 @@ width: 100%;
 		opacity: 0.6; // State change for when video is paused. Also improves legibility of foreground text.
 
 	}
-
-}
-
-// We don't need Chromecast icon on banner videos.
-
-#hero-banner-video::-internal-media-controls-overlay-cast-button {
-
-	display: none;
 
 }
 

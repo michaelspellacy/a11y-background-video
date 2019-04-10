@@ -1,3 +1,3 @@
-# a11y-background-video
+# Video Hero Banner
 
-An accessibly built background video example. 
+A video hero banner built with performance, accessibility and maintenance in mind. Documentation can be found at https://spellacy.net/video-hero-banner/

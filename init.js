@@ -28,6 +28,7 @@
 		var heroBannerVideo = document.createElement("video");
 		heroBannerVideo.id = "hero-banner-video";
 		heroBannerVideo.setAttribute("aria-label", "Background Animation");
+		heroBannerVideo.setAttribute("playsinline", "");
 
 		// Add: Video
 
@@ -146,7 +147,6 @@
 
 		heroBannerVideo.loop = true;
 		heroBannerVideo.muted = true;
-		heroBannerVideo.playsinline = true;
 
 		// Since this is decorative, let us disable the video menu.
 

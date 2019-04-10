@@ -145,6 +145,7 @@
 
 		}
 
+		heroBannerVideo.type = "video/mp4";
 		heroBannerVideo.loop = true;
 		heroBannerVideo.muted = true;
 
@@ -152,7 +153,7 @@
 
 		heroBannerVideo.oncontextmenu = function(){
 
-		//	return false;
+			return false;
 
 		};
 

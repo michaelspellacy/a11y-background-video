@@ -35,13 +35,13 @@
 
 		// Viewport Media Query Listener
 
-		const mediaQuery = window.matchMedia(heroBannerMedia);
+		var mediaQuery = window.matchMedia(heroBannerMedia);
 		mediaQuery.addListener(viewPortWidth);
 		viewPortWidth(mediaQuery);
 
 		// Prefers Reduced Motion Listener
 
-		const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+		var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 		motionQuery.addListener(viewportMotion);
 		viewportMotion(motionQuery);
 
@@ -152,7 +152,7 @@
 
 		heroBannerVideo.oncontextmenu = function(){
 
-			return false;
+		//	return false;
 
 		};
 

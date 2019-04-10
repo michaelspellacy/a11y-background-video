@@ -15,7 +15,6 @@ if(heroBanner) {
 	var heroBannerAll = heroBanner.getAttribute("data-banner-all");
 	var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
 	var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
-	var heroBannerPoster = document.getElementById("hero-banner-image").src;
 	var heroBannerPlay = "Play Background Animation";
 	var heroBannerPause = "Pause Background Animation";
 	var heroBannerState = "paused";
@@ -26,6 +25,9 @@ if(heroBanner) {
 	heroBannerVideo.id = "hero-banner-video";
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
 	heroBannerVideo.setAttribute("playsinline", "");
+
+	// See if fallback image is present
+
 
 	// Add: Video
 
@@ -79,13 +81,13 @@ if(heroBanner) {
 
 			playVideo();
 
-			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; path=/;";
+			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 		} else {
 
 			pauseVideo();
 
-			document.cookie = "heroBannerPaused=true; Secure; path=/";
+			document.cookie = "heroBannerPaused=true; path=/";
 
 		}
 
@@ -142,14 +144,6 @@ function viewPortWidth(mediaQuery) {
 			heroBannerVideo.setAttribute("src", heroBannerMobile);
 
 		}
-
-	}
-
-	// See if fallback image is present
-
-	if(heroBannerPoster !== null) {
-
-		heroBannerVideo.poster = heroBannerPoster;
 
 	}
 

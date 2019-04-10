@@ -19,6 +19,7 @@
 		var heroBannerAll = heroBanner.getAttribute("data-banner-all");
 		var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
 		var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
+		var heroBannerPoster = document.getElementById("hero-banner-image").src;
 		var heroBannerPlay = "Play Background Animation";
 		var heroBannerPause = "Pause Background Animation";
 		var heroBannerState = "paused";
@@ -143,6 +144,14 @@
 				heroBannerVideo.setAttribute("src", heroBannerMobile);
 
 			}
+
+		}
+
+		// See if fallback image is present
+
+		if(heroBannerPoster !== null) {
+
+			heroBannerVideo.poster = heroBannerPoster;
 
 		}
 

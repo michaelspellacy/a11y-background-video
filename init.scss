@@ -65,7 +65,7 @@ position: relative;
 
 	&.hero-banner-active {
 
-		#hero-banner-img {
+		#hero-banner-image {
 		display: none;
 		}
 
@@ -73,7 +73,7 @@ position: relative;
 
 }
 
-#hero-banner-video, #hero-banner-img  {
+#hero-banner-video, #hero-banner-image  {
 left: 0;
 opacity: 0.8; // Video is dark by default for improved legibility. Remove at own risk.
 position: absolute;

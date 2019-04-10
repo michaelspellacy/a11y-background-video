@@ -28,7 +28,7 @@
 		var heroBannerVideo = document.createElement("video");
 		heroBannerVideo.id = "hero-banner-video";
 		heroBannerVideo.setAttribute("aria-label", "Background Animation");
-		heroBannerVideo.setAttribute("playsinline", "");
+		heroBannerVideo.setAttribute("playsinline", "playsinline");
 
 		// Add: Video
 

@@ -71,6 +71,9 @@
 
 		// Add: Play/Pause Button
 
+		// Note: The pause button should _never_ be removed from the UI. This is an important accessibility feature.
+		// While script does make use of prefers-reduced-motion, we can't fully depend on it.
+
 		heroBanner.appendChild(herBannerButton);
 
 		// Event: Play/Pause Button

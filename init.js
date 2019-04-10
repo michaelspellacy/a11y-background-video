@@ -29,6 +29,7 @@
 		heroBannerVideo.id = "hero-banner-video";
 		heroBannerVideo.setAttribute("aria-label", "Background Animation");
 		heroBannerVideo.setAttribute("playsinline", "");
+		heroBannerVideo.setAttribute("type", "video/mp4");
 
 		// Add: Video
 
@@ -145,7 +146,6 @@
 
 		}
 
-		heroBannerVideo.type = "video/mp4";
 		heroBannerVideo.loop = true;
 		heroBannerVideo.muted = true;
 

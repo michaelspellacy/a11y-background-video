@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en-US">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
-    <link rel="stylesheet" href="init.css">
-    <title>Video Hero Banner - Simple. Accessible. Performant.</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+	<meta content="article" name="og:type">
+	<meta content="https://www.gravatar.com/avatar/89e429d4a3effa9601cd19a851c0003e.png?s=300" property="og:image">
+	<meta content="The author wearing his toy space helmet" property="og:image:alt">
+	<meta content="Video Hero Banner: Simple. Accessible. Perfomant." property="og:title">
+	<meta content="A video hero banner optimized for performance, accessibility and maintenance." property="og:description" name="description">
+	<meta content="#06416D" name="theme-color">
+	<link href="https://spellacy.net/css/global.css" rel="stylesheet">
+  <link href="init.css" rel="stylesheet">
+	<link href="/manifest.json" rel="manifest">
+	<link href="https://spellacy.net/video-hero-banner/" rel="canonical">
+	<link href="https://www.gravatar.com/avatar/89e429d4a3effa9601cd19a851c0003e.png?s=16" rel="icon">
+	<link href="/rss.xml" rel="alternate" title="Michael Spellacy - RSS Feed" type="application/rss+xml">
+	<title>Video Hero Banner: Simple. Accessible. Perfomant. - Spellacy.net</title>
+
+	<!--
+
+	Hello there! Come here my little friend. Don't be afraid.
+	It is nice to see somebody exploring the source code of a website.
+	If you are curious about any part of my site, feel free
+	to drop me a line. My email address is spell at spellacy.net
+
+	-->
+
 </head>
 
-<body>
+<body id="index">
 
-	<main>
+	<div id="page">
+
+		<a href="#content" id="skip-nav">Skip to main content</a>
+
+		<div class="alert"><strong>Excuse the mess! This site is undergoing an open redesign, so things may be a little broken and disorganized.</strong></div>
+
+		<main id="content">
+
+			<article>
+
+    <!-- Begin: Video Hero Banner -->
 
 		<div id="hero-banner" data-banner-desktop="hero-banner-video-lg.mp4" data-banner-mobile="hero-banner-video-sm.mp4" data-banner-media="(min-width:778px)">
 
@@ -17,13 +48,105 @@
 
       <img id="hero-banner-image" src="hero-banner-image.jpg" alt="">
 
+      <!-- Note: The fallback image is optional, but strongly recommended in event the script fails or video not supported -->
+
 		</div>
 
-    <p><a href="https://github.com/michaelspellacy/a11y-background-video">Check out the repo</a>, <a href="https://github.com/michaelspellacy/a11y-background-video/archive/master.zip">download it</a> or head on over to <a href="">the blog</a> for more details.</p>
+    <!-- End: Video Hero Banner -->
 
-	</main>
+    <!-- Documentation -->
 
-	<script src="init.js"></script>
+    <h2>Let's Face It...</h2>
+
+    <p>Video on mobile can still be a performance nightmare on your website and when your clients or collegues are demanding that that you implement video banners, well, what is a weary, performance-minded developer to do? Enter: <em>Video Hero Banner</em>.</p>
+
+    <p>Video Hero Banner (VHB) is built with performance, accessibility and maintenance in mind.</p>
+
+    <h2>Simple</h2>
+
+    <p>VHB is easy to implement. First, just pepper in a little semantic HTML goodness to lay down your foundation:</p>
+
+    <p><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/index.html">View HTML</a></p>
+
+    <p>Add any of the following parameters:</p>
+
+    <h3 id="data-banner-media">data-banner-media</h3>
+
+    <p>Similar to the <code>picture</code> elements <code>media</code> attribute, a valid min or max width property and viewport size are required. Parenthesis must be included in this value. For example: <code>data-banner-media="(min-width:550px)"</code>.</p>
+
+    <h3 id="data-banner-mobile">data-banner-mobile</h3>
+
+    <p>A valid URL to your optimized, mobile video is required. This will load on smaller screens, specified by breakpoint value in your <code>data-banner-media</code> attribute.</p>
+
+    <h3 id="data-banner-desktop">data-banner-desktop</h3>
+
+    <p>A valid URL to your optimized desktop video is required. This will load on larger screens, specified by breakpoint value in your data-banner-media attribute</p>
+
+    <h3 id="data-banner-all">data-banner-all</h3>
+
+    <p>A valid URL to your optimized video is required. Use this parameter if you wish to load in a single video for <strong>all</strong> viewports. <code>data-banner-mobile</code>, <code>data-banner-desktop</code> and <code>data-banner-media</code> are ignored when this attribute is used.</p>
+
+    <h3>CSS and JavaScript</h3>
+
+    <p>Once your HTML is ready, just copy the CSS (Sass) and JavaScript into your own site. You may modify as needed.</p>
+
+    <p><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/init.scss">View CSS (Sass)</a></p>
+
+    <p><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/init.js">View JavaScript</a></p>
+
+    <p><strong>Attention:</strong> Please do not link directly to any of these assets.</p>
+
+    <h2 id="accessible">Accessible</h2>
+
+    <p>Not everybody likes things that move on the web. Vestibualr disorders and epilpsy are but two disabilities that our work can have an adverse affect on. This is why it was important to include support for the <code>prefers-reduced-motion</code> media query. This will prevent video from playing if the user has enabled this setting in their OS. In the event that this <a href="https://caniuse.com/#search=prefers-reduced-motion">media query is not supported</a>, a pause button has been provided. This should never be removed from the UI and may benefit short-term disabilities that may come up for your users.</p>
+
+    <p>The pause button sets a cookie called <code>heroBannerPaused</code>, which will be used by the website on return visits and on other pages within the site that utilize the same script. When the video is played, this cookie is removed.</p>
+
+    <p><strong>Note:</strong> Video may not load when a device is in "Low Power Mode". This is not a bug, but a feature of the device to save power, which video can drain a lot of.</p>
+
+    <h2 id="performant">Performant</h2>
+
+    <p>There are a lot of different tools out there to optimize your video. For our demo, <a href="https://handbrake.fr/">HandBrake</a> was used for this task. If you would like to use this tool to optimize your own videos, then this <a href="https://www.youtube.com/watch?v=YhCHrnfqQhI">tutorial</a> is a great place to begin.</p>
+
+    <p><strong>Note:</strong> A <a href="vhb-handbrake-preset.json">HandBrake User Preset</a> is available to download and import. This may be a good starting point for beginners.</p>
+
+    <h2 id="todo">TODO</h2>
+
+    <ul>
+      <li><a href="https://github.com/michaelspellacy/video-hero-banner/issues/1">Load Fallback Image</a></li>
+      <li><a href="https://github.com/michaelspellacy/video-hero-banner/issues/2">Leverage Network Information API?</a></li>
+      <li><a href="https://github.com/michaelspellacy/video-hero-banner/issues/3">Support Multiple Media Types</li>
+      <li><a href="https://github.com/michaelspellacy/video-hero-banner/issues/4">Fix Narrow Video (Mobile)</a></li>
+      <li><a href="https://github.com/michaelspellacy/video-hero-banner/issues/5">Ignore Media Query When data-banner-all Used</a></li>
+    </ul>
+
+    <p>If you discover a bug or would like to see new features, please <a href="https://github.com/michaelspellacy/video-hero-banner/issues">open a new issue</a>.</p>
+
+    <button id="share-button"><i class="fas fa-share"></i> Share this content</button> <!-- TODO: Script this in -->
+
+  </article>
+
+</main>
+
+<footer>
+
+  <ul id="social">
+    <li><a href="https://github.com/michaelspellacy/" rel="me"><i class="fab fa-github"></i> Github</a></li>
+    <li><a href="https://a11y.info/@spellacy" rel="me"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+    <li><a href="/rss.xml"><i class="fas fa-rss-square"></i> RSS</a></li>
+    <li><a href="https://twitter.com/spellacy/" rel="me"><i class="fab fa-twitter"></i> Twitter</a></li>
+  </ul>
+
+  <p><small>&copy; 1973-2019 Copyright Michael Spellacy. All rights reserved.</small></p>
+
+  <p><small>Artwork by Grace Spellacy. Source code and site hosted on <a href="https://github.com/michaelspellacy/spellacy-net">Github</a>.</small></p>
+
+</footer>
+
+</div><!--/#page-->
+
+<script src="https://spellacy.net/js/global.js"></script>
+<script src="init.js"></script>
 
 </body>
 </html>

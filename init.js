@@ -154,7 +154,7 @@
 
 		heroBannerVideo.oncontextmenu = function(){
 
-		//	return false;
+			return false;
 
 		};
 

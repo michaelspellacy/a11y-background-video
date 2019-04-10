@@ -1,32 +1,19 @@
-// Accessible Background Video
-// Developer: Michael "Spell" Spellacy, Developer: Michael "Spell" Spellacy. Twitter: @spellacy, GitHub: michaelspellacy
+// Video Hero Banner (VHB)
+// Developer: Michael Spellacy (Spell), https://spellacy.net
+
+"use strict";
 
 (function() {
 
 	var heroBanner = document.getElementById("hero-banner");
 
+	// Check if banner exists.
+
 	if(heroBanner) {
 
-		// Get Cookie
+		heroBanner.classList.add("hero-banner-active");
 
-		function getCookie(name) {
-
-			var re = new RegExp(name + "=([^;]+)");
-	    var value = re.exec(document.cookie);
-	    return (value !== null) ? unescape(value[1]):null;
-
-		}
-
-		// Create: Video
-
-		var heroBannerVideo = document.createElement("video");
-
-		heroBannerVideo.id = "hero-banner-video";
-		heroBannerVideo.setAttribute("aria-label", "Background Animation");
-
-		// Add: Video
-
-		heroBanner.appendChild(heroBannerVideo);
+		// Variables
 
 		var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
 		var heroBannerAll = heroBanner.getAttribute("data-banner-all");
@@ -36,83 +23,25 @@
 		var heroBannerPause = "Pause Background Animation";
 		var heroBannerState = "paused";
 
-		function pauseVideo() {
+		// Create: Video
 
-			heroBannerVideo.pause();
-			heroBanner.classList.add(heroBannerState);
-			herBannerButton.setAttribute("aria-label", heroBannerPlay);
+		var heroBannerVideo = document.createElement("video");
+		heroBannerVideo.id = "hero-banner-video";
+		heroBannerVideo.setAttribute("aria-label", "Background Animation");
 
-		}
+		// Add: Video
 
-		function playVideo() {
+		heroBanner.appendChild(heroBannerVideo);
 
-			heroBannerVideo.play();
-			heroBanner.classList.remove(heroBannerState);
-			herBannerButton.setAttribute("aria-label", heroBannerPause);
+		// Viewport Media Query Listener
 
-		}
-
-		function viewPortWidth(mediaQuery) {
-
-			if(heroBannerAll !== null) {
-
-				heroBannerVideo.setAttribute("src", heroBannerAll);
-
-			} else {
-
-				if (mediaQuery.matches) {
-
-					heroBannerVideo.setAttribute("src", heroBannerDesktop);
-
-				} else {
-
-					heroBannerVideo.setAttribute("src", heroBannerMobile);
-
-				}
-
-			}
-
-			heroBannerVideo.loop = true;
-			heroBannerVideo.muted = true;
-			heroBannerVideo.playsinline = true;
-
-			// Since this is decorative, let us disable the video menu.
-
-			heroBannerVideo.oncontextmenu = function(){
-
-				return false;
-
-			};
-
-			if(heroBanner.classList.contains(heroBannerState)) {
-
-				heroBannerVideo.pause();
-
-			} else {
-
-				heroBannerVideo.play();
-
-			}
-
-		}
-
-		const mediaQuery = matchMedia(heroBannerMedia);
+		const mediaQuery = window.matchMedia(heroBannerMedia);
 		mediaQuery.addListener(viewPortWidth);
 		viewPortWidth(mediaQuery);
 
-		// Check for prefers-reduced-motion (Still WIP)
+		// Prefers Reduced Motion Listener
 
-		function viewportMotion(motionQuery){
-
-			if (motionQuery.matches) {
-
-				pauseVideo();
-
-			}
-
-		}
-
-		const motionQuery = matchMedia("(prefers-reduced-motion: reduce)");
+		const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 		motionQuery.addListener(viewportMotion);
 		viewportMotion(motionQuery);
 
@@ -124,6 +53,8 @@
 		// Check Cookie. If set to true, pause video.
 
 		var heroBannerPaused = getCookie("heroBannerPaused");
+
+		// If cookie exists, then pause video
 
 		if(heroBannerPaused !== null) {
 
@@ -157,8 +88,96 @@
 
 			}
 
+		};
+
+	}
+
+	// Get Cookie
+
+	function getCookie(name) {
+
+		var re = new RegExp(name + "=([^;]+)");
+		var value = re.exec(document.cookie);
+		return (value !== null) ? unescape(value[1]):null;
+
+	}
+
+	// Pause Video
+
+	function pauseVideo() {
+
+		heroBannerVideo.pause();
+		heroBanner.classList.add(heroBannerState);
+		herBannerButton.setAttribute("aria-label", heroBannerPlay);
+
+	}
+
+	// Play Video
+
+	function playVideo() {
+
+		heroBannerVideo.play();
+		heroBanner.classList.remove(heroBannerState);
+		herBannerButton.setAttribute("aria-label", heroBannerPause);
+
+	}
+
+	// Viewport Width Media Query
+
+	function viewPortWidth(mediaQuery) {
+
+		if(heroBannerAll !== null) {
+
+			heroBannerVideo.setAttribute("src", heroBannerAll);
+
+		} else {
+
+			if (mediaQuery.matches) {
+
+				heroBannerVideo.setAttribute("src", heroBannerDesktop);
+
+			} else {
+
+				heroBannerVideo.setAttribute("src", heroBannerMobile);
+
+			}
+
+		}
+
+		heroBannerVideo.loop = true;
+		heroBannerVideo.muted = true;
+		heroBannerVideo.playsinline = true;
+
+		// Since this is decorative, let us disable the video menu.
+
+		heroBannerVideo.oncontextmenu = function(){
+
+			return false;
+
+		};
+
+		if(heroBanner.classList.contains(heroBannerState)) {
+
+			heroBannerVideo.pause();
+
+		} else {
+
+			heroBannerVideo.play();
+
 		}
 
 	}
 
-})();
+	// Prefers Reduced Motion Media Query (WIP)
+
+	function viewportMotion(motionQuery){
+
+		if (motionQuery.matches) {
+
+			pauseVideo();
+
+		}
+
+	}
+
+}());

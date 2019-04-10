@@ -9,7 +9,7 @@
 	<meta content="Video Hero Banner: Simple. Accessible. Perfomant." property="og:title">
 	<meta content="A video hero banner optimized for performance, accessibility and maintenance." property="og:description" name="description">
 	<meta content="#06416D" name="theme-color">
-	<link href="/css/global.css" rel="stylesheet">
+	<link href="https://spellacy.net/css/global.css" rel="stylesheet">
   <link href="init.css" rel="stylesheet">
 	<link href="/manifest.json" rel="manifest">
 	<link href="https://spellacy.net/video-hero-banner/" rel="canonical">
@@ -66,9 +66,21 @@
 
     <p>VHB is <em>easy</em> to implement. First, just pepper in a little semantic HTML goodness to lay down your foundation:</p>
 
-    <p><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/index.html">View HTML</a></p>
+<pre><code>&lt;div id="hero-banner" data-banner-desktop="hero-banner-video-lg.mp4" data-banner-mobile="hero-banner-video-sm.mp4" data-banner-media="(min-width:778px)"&gt;
+
+  &lt;h1 class="hero-banner-heading"&gt;Video Hero Banner &lt;b&gt;Simple. Accessible. Performant.&lt;/b&gt;&lt;/h1&gt;
+
+  &lt;img id="hero-banner-image" src="hero-banner-image.jpg" alt=""&gt;
+
+  &lt;!-- Note: The fallback image is optional, but strongly recommended in event the script fails or video not supported --&gt;
+
+&lt;/div&gt;</code></pre>
 
     <p>Add any of the following parameters:</p>
+
+    <h3 id="hdr-hero-banner">hero-banner</h3>
+
+    <p>This is the primary id for the CSS and JavaScript. Required.</p>
 
     <h3 id="data-banner-media">data-banner-media</h3>
 
@@ -76,15 +88,17 @@
 
     <h3 id="data-banner-mobile">data-banner-mobile</h3>
 
-    <p>A valid URL to your optimized, mobile video is required. This will load on smaller screens, specified by breakpoint value in your <code>data-banner-media</code> attribute.</p>
+    <p>A valid URL to your optimized, mobile video is required. This will load on smaller screens, specified by breakpoint value in your <code>data-banner-media</code> attribute. For example: <code>data-banner-mobile="my-video-sm.mp4"</code></p>
 
     <h3 id="data-banner-desktop">data-banner-desktop</h3>
 
-    <p>A valid URL to your optimized desktop video is required. This will load on larger screens, specified by breakpoint value in your data-banner-media attribute</p>
+    <p>A valid URL to your optimized desktop video is required. This will load on larger screens, specified by breakpoint value in your data-banner-media attribute. For example: <code>data-banner-desktop="my-video-sm.mp4"</code></p>
 
     <h3 id="data-banner-all">data-banner-all</h3>
 
-    <p>A valid URL to your optimized video is required. Use this parameter if you wish to load in a single video for <strong>all</strong> viewports. <code>data-banner-mobile</code>, <code>data-banner-desktop</code> and <code>data-banner-media</code> are ignored when this attribute is used.</p>
+    <p>A valid URL to your optimized video is required. Use this parameter if you wish to load in a single video for <strong>all</strong> viewports. For example: <code>data-banner-all="my-video.mp4"</code>.</p>
+
+    <p>Please note that <code>data-banner-mobile</code>, <code>data-banner-desktop</code> and <code>data-banner-media</code> are ignored when this attribute is used.</p>
 
     <h3>CSS and JavaScript</h3>
 
@@ -98,7 +112,7 @@
 
     <h2 id="accessible">Accessible</h2>
 
-    <p>Not everybody likes things that move on the web. Vestibular disorders and epilepsy are but two disabilities that our work can have an adverse effect on. This is why it was important to include support for the <code>prefers-reduced-motion</code> media query. This will prevent video from playing if the user has enabled this setting in their OS. In the event that this <a href="https://caniuse.com/#search=prefers-reduced-motion">media query is not supported</a>, a pause button has been provided. This should never be removed from the UI and may benefit short-term disabilities that may come up for your users.</p>
+    <p>Not everybody likes things that move on the web. Vestibular disorders and epilepsy are but two disabilities that our work can have an adverse effect on. This is why it was important to include support for the <code>prefers-reduced-motion</code> media query. This will prevent video from playing if the user has enabled this setting in their OS. In the event that this <a href="https://caniuse.com/#search=prefers-reduced-motion">media query is not supported</a>, a pause button has been included in the interface. This should <strong>never</strong> be removed and may also serve to benefit short-term disabilities that may come up for your users.</p>
 
     <p>The pause button sets a cookie called <code>heroBannerPaused</code>, which will be used by the website on return visits and on other pages within the site that utilize the same script. When the video is played, this cookie is removed.</p>
 
@@ -121,6 +135,12 @@
     </ul>
 
     <p>If you discover a bug or would like to see a new feature, please <a href="https://github.com/michaelspellacy/video-hero-banner/issues">open a new issue</a>.</p>
+
+    <h2 id="contributors">Contribute</h2>
+
+		<p>If you wish to contribute, <a href="https://guides.github.com/activities/forking/">fork</a> this <a href="https://github.com/michaelspellacy/video-hero-banner/">project</a>, make some changes, and <a href="https://guides.github.com/activities/forking/#making-a-pull-request">create a pull request</a>.</p>
+
+		<p>New to GitHub? <a href="https://guides.github.com/activities/hello-world/">Learn the basics with the guide</a> and <a href="https://guides.github.com/introduction/flow/">learn the GitHub flow</a>.</p>
 
     <button id="share-button"><i class="fas fa-share"></i> Share this content</button> <!-- TODO: Script this in -->
 

@@ -25,26 +25,12 @@ if(heroBanner) {
 	heroBannerVideo.id = "hero-banner-video";
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
 	heroBannerVideo.setAttribute("playsinline", "");
-	heroBannerVideo.setAttribute("muted", "");
-	heroBannerVideo.setAttribute("loop", "");
 
 	// TODO: Add fallback Image
 
 	// Add: Video
 
 	heroBanner.appendChild(heroBannerVideo);
-
-	// Viewport Media Query Listener
-
-	var mediaQuery = window.matchMedia(heroBannerMedia);
-	mediaQuery.addListener(viewPortWidth);
-	viewPortWidth(mediaQuery);
-
-	// Prefers Reduced Motion Listener
-
-	var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-	motionQuery.addListener(viewportMotion);
-	viewportMotion(motionQuery);
 
 	// Create: Play/Pause Button
 
@@ -67,6 +53,18 @@ if(heroBanner) {
 
 	}
 
+	// Viewport Media Query Listener
+
+	var mediaQuery = window.matchMedia(heroBannerMedia);
+	mediaQuery.addListener(viewPortWidth);
+	viewPortWidth(mediaQuery);
+
+	// Prefers Reduced Motion Listener
+
+	var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	motionQuery.addListener(viewportMotion);
+	viewportMotion(motionQuery);
+
 	// Add: Play/Pause Button
 
 	// Note: The pause button should _never_ be removed from the UI. This is an important accessibility feature.
@@ -80,15 +78,15 @@ if(heroBanner) {
 
 		if (heroBanner.classList.contains(heroBannerState)) {
 
-			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
 			playVideo();
+
+			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 		} else {
 
-			document.cookie = "heroBannerPaused=true; path=/";
-
 			pauseVideo();
+
+			document.cookie = "heroBannerPaused=true; path=/";
 
 		}
 
@@ -151,15 +149,7 @@ function viewPortWidth(mediaQuery) {
 	heroBannerVideo.loop = true;
 	heroBannerVideo.muted = true;
 
-	// Since this is decorative, let us disable the video menu.
-
-	heroBannerVideo.oncontextmenu = function(){
-
-		return false;
-
-	};
-
-	if(heroBanner.classList.contains(heroBannerState)) {
+	if(heroBanner.classList.contains("paused")) {
 
 		heroBannerVideo.pause();
 
@@ -168,6 +158,14 @@ function viewPortWidth(mediaQuery) {
 		heroBannerVideo.play();
 
 	}
+
+	// Since this is decorative, let us disable the video menu.
+
+	heroBannerVideo.oncontextmenu = function(){
+
+		return false;
+
+	};
 
 }
 

@@ -4,8 +4,10 @@
   100% {
     opacity: 1; } }
 #hero-banner {
+  animation: heroBannerFade 300ms 600ms ease-in-out forwards;
   background-color: black;
   margin: -1em -1em 0;
+  opacity: 0;
   overflow: hidden;
   padding-bottom: 66%;
   position: relative; }

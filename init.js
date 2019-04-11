@@ -69,9 +69,9 @@ if(heroBanner) {
 
 		if (heroBanner.classList.contains(heroBannerState)) {
 
-			playVideo();
-
 			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+			playVideo();
 
 		} else {
 
@@ -113,18 +113,20 @@ function playVideo() {
 
 	if (!isPlaying) {
 
+		heroBannerVideo.play();
+		heroBanner.classList.remove(heroBannerState);
+		heroBannerButton.setAttribute("aria-label", heroBannerPause);
 
-	heroBannerVideo.play();
-	heroBanner.classList.remove(heroBannerState);
-	heroBannerButton.setAttribute("aria-label", heroBannerPause);
-
-}
+	}
 
 }
 
 // Viewport Width Media Query
 
 function viewPortWidth(mediaQuery) {
+
+	heroBannerVideo.loop = true;
+	heroBannerVideo.muted = true;
 
 	if(heroBannerAll !== null) {
 
@@ -143,11 +145,6 @@ function viewPortWidth(mediaQuery) {
 		}
 
 	}
-
-	heroBannerVideo.loop = true;
-	heroBannerVideo.muted = true;
-
-
 
 	// If cookie exists, then pause video
 

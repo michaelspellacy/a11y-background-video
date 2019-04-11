@@ -109,9 +109,16 @@ function pauseVideo() {
 
 function playVideo() {
 
+	var isPlaying = heroBannerVideo.currentTime > 0 && !heroBannerVideo.paused && !heroBannerVideo.ended && heroBannerVideo.readyState > 2;
+
+	if (!isPlaying) {
+
+
 	heroBannerVideo.play();
 	heroBanner.classList.remove(heroBannerState);
 	heroBannerButton.setAttribute("aria-label", heroBannerPause);
+
+}
 
 }
 

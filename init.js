@@ -157,13 +157,15 @@ function viewPortWidth(mediaQuery) {
 
 	};
 
+	// This may be issue in iOS. Pause being set then play
+
 	if(heroBanner.classList.contains(heroBannerState)) {
 
-		// heroBannerVideo.pause();
+		heroBannerVideo.pause();
 
 	} else {
 
-		// heroBannerVideo.play();
+		heroBannerVideo.play();
 
 	}
 

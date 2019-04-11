@@ -57,7 +57,7 @@ if(heroBanner) {
 
 	if(heroBannerPaused !== null) {
 
-		pauseVideo();
+		// pauseVideo();
 
 	} else {
 

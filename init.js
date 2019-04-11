@@ -154,16 +154,19 @@ function viewPortWidth(mediaQuery) {
 
 	}
 
-
-
-
 	if(heroBanner.classList.contains("paused")) {
 
 		heroBannerVideo.pause();
 
 	} else {
 
-		heroBannerVideo.play();
+		var isPlaying = heroBannerVideo.currentTime > 0 && !heroBannerVideo.paused && !heroBannerVideo.ended && heroBannerVideo.readyState > 2;
+
+		if (!isPlaying) {
+
+			heroBannerVideo.play();
+
+		}
 
 	}
 

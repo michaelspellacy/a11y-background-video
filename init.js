@@ -156,7 +156,13 @@ function viewPortWidth(mediaQuery) {
 
 	} else {
 
-		heroBannerVideo.play();
+		var isPlaying = heroBannerVideo.currentTime > 0 && !heroBannerVideo.paused && !heroBannerVideo.ended && heroBannerVideo.readyState > 2;
+
+		if (!isPlaying) {
+
+			heroBannerVideo.play();
+
+		}
 
 	}
 

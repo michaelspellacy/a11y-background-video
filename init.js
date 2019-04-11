@@ -25,6 +25,7 @@ if(heroBanner) {
 	heroBannerVideo.id = "hero-banner-video";
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
 	heroBannerVideo.setAttribute("playsinline", "");
+	heroBannerVideo.setAttribute("type", "video/mp4");
 
 	// TODO: Add fallback Image
 

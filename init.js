@@ -26,8 +26,7 @@ if(heroBanner) {
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
 	heroBannerVideo.setAttribute("playsinline", "");
 
-	// See if fallback image is present
-
+	// TODO: Add fallback Image
 
 	// Add: Video
 
@@ -47,8 +46,8 @@ if(heroBanner) {
 
 	// Create: Play/Pause Button
 
-	var herBannerButton = document.createElement("button");
-	herBannerButton.id = "hero-banner-button";
+	var heroBannerButton = document.createElement("button");
+	heroBannerButton.id = "hero-banner-button";
 
 	// Check Cookie. If set to true, pause video.
 
@@ -62,7 +61,7 @@ if(heroBanner) {
 
 	} else {
 
-		herBannerButton.setAttribute("aria-label", heroBannerPause);
+		heroBannerButton.setAttribute("aria-label", heroBannerPause);
 
 	}
 
@@ -71,23 +70,23 @@ if(heroBanner) {
 	// Note: The pause button should _never_ be removed from the UI. This is an important accessibility feature.
 	// While script does make use of prefers-reduced-motion, we can't fully depend on it.
 
-	heroBanner.appendChild(herBannerButton);
+	heroBanner.appendChild(heroBannerButton);
 
 	// Event: Play/Pause Button
 
-	herBannerButton.onclick = function(){
+	heroBannerButton.onclick = function(){
 
 		if (heroBanner.classList.contains(heroBannerState)) {
 
-			playVideo();
+			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
-			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; path=/;";
+			playVideo();
 
 		} else {
 
-			pauseVideo();
+			document.cookie = "heroBannerPaused=true; path=/";
 
-			document.cookie = "heroBannerPaused=true; Secure; path=/";
+			pauseVideo();
 
 		}
 
@@ -109,9 +108,9 @@ function getCookie(name) {
 
 function pauseVideo() {
 
-	heroBannerVideo.pause();
 	heroBanner.classList.add(heroBannerState);
-	herBannerButton.setAttribute("aria-label", heroBannerPlay);
+	heroBannerVideo.pause();
+	heroBannerButton.setAttribute("aria-label", heroBannerPlay);
 
 }
 
@@ -119,9 +118,9 @@ function pauseVideo() {
 
 function playVideo() {
 
-	heroBannerVideo.play();
 	heroBanner.classList.remove(heroBannerState);
-	herBannerButton.setAttribute("aria-label", heroBannerPause);
+	heroBannerVideo.play();
+	heroBannerButton.setAttribute("aria-label", heroBannerPause);
 
 }
 
@@ -160,11 +159,11 @@ function viewPortWidth(mediaQuery) {
 
 	if(heroBanner.classList.contains(heroBannerState)) {
 
-		heroBannerVideo.pause();
+		// heroBannerVideo.pause();
 
 	} else {
 
-		heroBannerVideo.play();
+		// heroBannerVideo.play();
 
 	}
 

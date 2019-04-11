@@ -113,6 +113,7 @@ function playVideo() {
 
 	if (!isPlaying) {
 
+		heroBannerVideo.load();
 		heroBannerVideo.play();
 		heroBanner.classList.remove(heroBannerState);
 		heroBannerButton.setAttribute("aria-label", heroBannerPause);
@@ -145,6 +146,8 @@ function viewPortWidth(mediaQuery) {
 		}
 
 	}
+
+	heroBannerVideo.load();
 
 	// If cookie exists, then pause video
 

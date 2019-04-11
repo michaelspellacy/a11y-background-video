@@ -42,17 +42,7 @@ if(heroBanner) {
 
 	var heroBannerPaused = getCookie("heroBannerPaused");
 
-	// If cookie exists, then pause video
-
-	if(heroBannerPaused !== null) {
-
-		pauseVideo();
-
-	} else {
-
-		heroBannerButton.setAttribute("aria-label", heroBannerPause);
-
-	}
+	console.log("Hero Banner Cookie Set:" + heroBannerPaused);
 
 	// Viewport Media Query Listener
 
@@ -150,19 +140,30 @@ function viewPortWidth(mediaQuery) {
 	heroBannerVideo.loop = true;
 	heroBannerVideo.muted = true;
 
+
+
+	// If cookie exists, then pause video
+
+	if(heroBannerPaused !== null) {
+
+			heroBanner.classList.add(heroBannerState);
+
+	} else {
+
+		heroBannerButton.setAttribute("aria-label", heroBannerPause);
+
+	}
+
+
+
+
 	if(heroBanner.classList.contains("paused")) {
 
 		heroBannerVideo.pause();
 
 	} else {
 
-		var isPlaying = heroBannerVideo.currentTime > 0 && !heroBannerVideo.paused && !heroBannerVideo.ended && heroBannerVideo.readyState > 2;
-
-		if (!isPlaying) {
-
-			heroBannerVideo.play();
-
-		}
+		heroBannerVideo.play();
 
 	}
 

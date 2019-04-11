@@ -20,10 +20,10 @@
 }
 
 #hero-banner {
-//animation: heroBannerFade 300ms 600ms ease-in-out forwards;
+animation: heroBannerFade 300ms 600ms ease-in-out forwards;
 background-color: black; // Change to whatever color you wish. This will bleed in from behind the video. Domminant color for when video is paused.
 margin: -1em -1em 0;
-//opacity: 0;
+opacity: 0;
 overflow: hidden;
 padding-bottom: 66%;
 position: relative;

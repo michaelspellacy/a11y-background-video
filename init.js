@@ -113,7 +113,9 @@ function playVideo() {
 
 	if (!isPlaying) {
 
-		heroBannerVideo.load();
+		heroBannerVideo.loop = true;
+		heroBannerVideo.muted = true;
+
 		heroBannerVideo.play();
 		heroBanner.classList.remove(heroBannerState);
 		heroBannerButton.setAttribute("aria-label", heroBannerPause);

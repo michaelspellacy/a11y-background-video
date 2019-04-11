@@ -25,6 +25,8 @@ if(heroBanner) {
 	heroBannerVideo.id = "hero-banner-video";
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
 	heroBannerVideo.setAttribute("playsinline", "");
+	heroBannerVideo.setAttribute("muted", "");
+	heroBannerVideo.setAttribute("loop", "");
 
 	// TODO: Add fallback Image
 
@@ -57,7 +59,7 @@ if(heroBanner) {
 
 	if(heroBannerPaused !== null) {
 
-		// pauseVideo();
+		pauseVideo();
 
 	} else {
 
@@ -108,8 +110,8 @@ function getCookie(name) {
 
 function pauseVideo() {
 
-	heroBanner.classList.add(heroBannerState);
 	heroBannerVideo.pause();
+	heroBanner.classList.add(heroBannerState);
 	heroBannerButton.setAttribute("aria-label", heroBannerPlay);
 
 }
@@ -118,8 +120,8 @@ function pauseVideo() {
 
 function playVideo() {
 
-	heroBanner.classList.remove(heroBannerState);
 	heroBannerVideo.play();
+	heroBanner.classList.remove(heroBannerState);
 	heroBannerButton.setAttribute("aria-label", heroBannerPause);
 
 }
@@ -156,8 +158,6 @@ function viewPortWidth(mediaQuery) {
 		return false;
 
 	};
-
-	// This may be issue in iOS. Pause being set then play
 
 	if(heroBanner.classList.contains(heroBannerState)) {
 

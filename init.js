@@ -1,11 +1,19 @@
 // Video Hero Banner (VHB)
 // Developer: Michael Spellacy (Spell), https://spellacy.net
 
+// Note: If you have a PWA, please see https://github.com/michaelspellacy/video-hero-banner/issues/7 before using
+
 var heroBanner = document.getElementById("hero-banner");
 
 // Check if banner exists.
 
 if(heroBanner) {
+
+	// Check Cookie. If set to true, pause video.
+
+	var heroBannerPaused = getCookie("heroBannerPaused");
+
+	// Set "active" hook to main element
 
 	heroBanner.classList.add("hero-banner-active");
 
@@ -24,6 +32,7 @@ if(heroBanner) {
 	var heroBannerVideo = document.createElement("video");
 	heroBannerVideo.id = "hero-banner-video";
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
+	heroBannerVideo.setAttribute("loop", "");
 	heroBannerVideo.setAttribute("playsinline", "");
 
 	// TODO: Add fallback Image
@@ -36,12 +45,6 @@ if(heroBanner) {
 
 	var heroBannerButton = document.createElement("button");
 	heroBannerButton.id = "hero-banner-button";
-
-	// Check Cookie. If set to true, pause video.
-
-	var heroBannerPaused = getCookie("heroBannerPaused");
-
-	console.log("Hero Banner Cookie Set:" + heroBannerPaused);
 
 	// Viewport Media Query Listener
 
@@ -68,7 +71,7 @@ if(heroBanner) {
 
 		if (heroBanner.classList.contains(heroBannerState)) {
 
-			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; path=/;";
 
 			playVideo();
 
@@ -76,7 +79,7 @@ if(heroBanner) {
 
 			pauseVideo();
 
-			document.cookie = "heroBannerPaused=true; path=/";
+			document.cookie = "heroBannerPaused=true; Secure; path=/";
 
 		}
 
@@ -137,7 +140,6 @@ function viewPortWidth(mediaQuery) {
 	}
 
 	heroBannerVideo.load();
-	heroBannerVideo.loop = true;
 	heroBannerVideo.muted = true;
 
 	// If cookie exists, then pause video

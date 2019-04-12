@@ -34,6 +34,7 @@ if(heroBanner) {
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
 	heroBannerVideo.setAttribute("loop", "");
 	heroBannerVideo.setAttribute("playsinline", "");
+	heroBannerVideo.setAttribute("disableRemotePlayback", "");
 
 	// TODO: Add fallback Image
 

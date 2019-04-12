@@ -26,7 +26,6 @@ if(heroBanner) {
 	heroBannerVideo.setAttribute("aria-label", "Background Animation");
 	heroBannerVideo.setAttribute("playsinline", "");
 	heroBannerVideo.setAttribute("type", "video/mp4");
-	heroBannerVideo.setAttribute("muted", "");
 
 	// TODO: Add fallback Image
 
@@ -114,11 +113,6 @@ function playVideo() {
 
 	if (!isPlaying) {
 
-		heroBannerVideo.loop = true;
-		heroBannerVideo.muted = true;
-
-		heroBannerVideo.load();
-
 		heroBannerVideo.play();
 		heroBanner.classList.remove(heroBannerState);
 		heroBannerButton.setAttribute("aria-label", heroBannerPause);
@@ -151,8 +145,6 @@ function viewPortWidth(mediaQuery) {
 		}
 
 	}
-
-	heroBannerVideo.load();
 
 	// If cookie exists, then pause video
 

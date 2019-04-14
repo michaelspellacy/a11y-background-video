@@ -47,17 +47,17 @@ if(heroBanner) {
 	var heroBannerButton = document.createElement("button");
 	heroBannerButton.id = "hero-banner-button";
 
-	// Viewport Media Query Listener
+	// Fire Viewport Width
 
 	var mediaQuery = window.matchMedia(heroBannerMedia);
 	mediaQuery.addListener(viewPortWidth);
 	viewPortWidth(mediaQuery);
 
-	// Prefers Reduced Motion Listener
+	// Fire Prefers Reduced Motion
 
-	//var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-	//motionQuery.addListener(viewportMotion);
-	//viewportMotion(motionQuery);
+	var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	motionQuery.addListener(viewportMotion);
+	viewportMotion(motionQuery);
 
 	// Add: Play/Pause Button
 
@@ -118,7 +118,7 @@ function playVideo() {
 
 }
 
-// Viewport Width Media Query
+// Viewport Width
 
 function viewPortWidth(mediaQuery) {
 
@@ -175,7 +175,7 @@ function viewPortWidth(mediaQuery) {
 
 }
 
-// Prefers Reduced Motion Media Query (WIP)
+// Prefers Reduced Motion
 
 function viewportMotion(motionQuery){
 

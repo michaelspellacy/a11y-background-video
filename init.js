@@ -55,9 +55,9 @@ if(heroBanner) {
 
 	// Prefers Reduced Motion Listener
 
-	var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-	motionQuery.addListener(viewportMotion);
-	viewportMotion(motionQuery);
+	//var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	//motionQuery.addListener(viewportMotion);
+	//viewportMotion(motionQuery);
 
 	// Add: Play/Pause Button
 

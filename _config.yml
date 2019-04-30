@@ -1,0 +1,30 @@
+app: Michael Spellacy - The Blog
+author: Michael Spellacy
+author-image: https://www.gravatar.com/avatar/89e429d4a3effa9601cd19a851c0003e.jpg
+author-image-alt: The author wearing his toy space helmet.
+charset: utf-8
+description: Spell is a web developer, designer and accessibility specialist living in beautiful Allentown, PA. In his spare time, he can be found restoring retro arcade machines.
+destination: _httpdocs
+email: spell@spellacy.net
+exclude: [
+  readme.md,
+  CNAME
+]
+highlighter: rouge
+lang: en-US
+license: https://creativecommons.org/licenses/by/4.0/
+markdown: kramdown
+name: Spellacy.net
+nickname: Spell
+layout: default
+role: Front-end developer, designer and accessibility specialist
+sass:
+  style: :compressed
+social-github: https://github.com/michaelspellacy/
+social-mastodon: https://a11y.info/@spellacy
+social-twitter: https://twitter.com/spellacy/
+sorce-code: https://github.com/michaelspellacy/michaelspellacy.github.io
+theme-color: "#3E1D62"
+timezone: America/New_York
+url: https://spellacy.net
+webmentions:

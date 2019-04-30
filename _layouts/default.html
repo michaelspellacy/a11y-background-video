@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{site.lang}}">
+<head>
+	<meta charset="{{site.charset}}">
+	<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">{% if page.noindex %}
+	<meta content="noindex, nofollow" name="robots">{% endif %}
+	<meta content="article" name="og:type">
+	<meta content="{{site.author-image}}?s=300" property="og:image">
+	<meta content="{{site.author-image-alt}}" property="og:image:alt">
+	<meta content="{{ page.title }}" property="og:title">{% if page.description %}
+	<meta content="{{ page.description }}" property="og:description" name="description">{% endif %}
+	<meta content="{{site.theme-color}}" name="theme-color">
+	<link href="/css/global.css" rel="stylesheet">{% if page.localcss %}
+	<link href="{{ page.localcss }}" rel="stylesheet">{% endif %}
+	<link href="/manifest.json" rel="manifest">
+	<link href="{{ page.url | replace:'index.html','' | prepend: site.url}}" rel="canonical">
+	<link href="{{site.author-image}}?s=16" rel="icon">
+	<link href="/rss.xml" rel="alternate" title="{{site.author}} - RSS Feed" type="application/rss+xml">
+	<link href="mailto:{{site.email}}" rel="me">
+	<title>{{ page.title }} - {{ site.name }}</title>
+</head>
+
+<!--
+
+Hello there! Come here my little friend. Don't be afraid.
+It is nice to see somebody exploring the source code of a website.
+If you are curious about any part of my site, feel free
+to drop me a line. My email address is spell at spellacy.net
+
+-->
+
+<body id="{{page.path | replace:'.html',''| replace: '/', '-'}}"{% if page.section %} class="{{ page.section }}"{% endif %}>
+
+	<div id="page">
+
+		<a href="#content" id="skip-nav">Skip to main content</a>
+
+		<p class="alert"><strong>Excuse the mess! This site is undergoing an open redesign, so things may be a little broken and disorganized.</strong></p>
+
+		<header id="banner"{% if page.theme == "minify" %}class="minify"{% endif %}>
+
+			<a class="h-card" href="{{site.url}}" rel="me">
+
+				<img src="{{site.author-image}}?s=200" alt="{{site.author}}">
+
+			</a>
+
+			<nav id="primary-navigation" aria-label="primary">
+
+				<ul>
+					<li><a href="/">About</a></li>
+					<li><a href="/">All</a></li>
+					<li><a href="/">Articles</a></li>
+					<li><a href="/">Notes</a></li>
+					<li><a href="/">Photos</a></li>
+				</ul>
+
+			</nav>
+
+		</header>
+
+		<main id="content">
+
+			<article>
+
+				{{ content }}
+
+			</article>
+
+		</main>
+
+		<footer>
+
+			<ul id="social">
+				<li><a href="{{site.social-github}}" rel="me"><i class="fab fa-github"></i> Github</a></li>
+				<li><a href="{{site.social-mastodon}}" rel="me"><i class="fab fa-mastodon"></i> Mastodon</a></li>
+				<li><a href="/rss.xml"><i class="fas fa-rss-square"></i> RSS</a></li>
+				<li><a href="{{site.social-twitter}}" rel="me"><i class="fab fa-twitter"></i> Twitter</a></li>
+			</ul>
+
+			<p><i class="fab fa-creative-commons"></i> <small>Except where otherwise noted, content on this site is licensed under <a href="{{site.license}}" rel="license">Creative Commons Attribution 4.0 International</a>. The source code for this site may be found on <a href="{{site.sorce-code}}">Github</a>.</small></p>
+
+			<p><small>How's my coding? Feel free to <a href="mailto:{{site.email}}">drop me a line</a> if you spot any issues with my site.</small></p>
+
+		</footer>
+
+	</div><!--/#page-->
+
+	<script src="/js/global.js"></script>{% if page.localjs %}
+	<script src="{{ page.localjs }}"></script>{% endif %}
+
+</body>
+</html>

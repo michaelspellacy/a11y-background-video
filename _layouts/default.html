@@ -8,13 +8,14 @@
 	<meta content="{{site.author-image}}?s=300" property="og:image">
 	<meta content="{{site.author-image-alt}}" property="og:image:alt">
 	<meta content="{{ page.title }}" property="og:title">{% if page.description %}
-	<meta content="{{ page.description }}" property="og:description" name="description">{% endif %}
+	<meta content="{{ page.description }}" name="description">
+	<meta content="{{ page.description }}" property="og:description">{% endif %}
 	<meta content="{{site.theme-color}}" name="theme-color">
 	<link href="/css/global.css" rel="stylesheet">{% if page.localcss %}
 	<link href="{{ page.localcss }}" rel="stylesheet">{% endif %}
 	<link href="/manifest.json" rel="manifest">
 	<link href="{{ page.url | replace:'index.html','' | prepend: site.url}}" rel="canonical">
-	<link href="{{site.author-image}}?s=16" rel="icon">
+	<link href="{{site.author-image | replace: '.jpg', '.ico'}}?s=32" rel="icon">
 	<link href="/rss.xml" rel="alternate" title="{{site.author}} - RSS Feed" type="application/rss+xml">
 	<link href="mailto:{{site.email}}" rel="me">
 	<title>{{ page.title }} - {{ site.name }}</title>
@@ -22,10 +23,10 @@
 
 <!--
 
-Hello there! Come here my little friend. Don't be afraid.
-It is nice to see somebody exploring the source code of a website.
-If you are curious about any part of my site, feel free
-to drop me a line. My email address is spell at spellacy.net
+	Hello there! Come here my little friend. Don't be afraid.
+	It is nice to see somebody exploring the source code of a website.
+	If you are curious about any part of my site, feel free
+	to drop me a line. My email address is spell at spellacy.net
 
 -->
 

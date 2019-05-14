@@ -4,9 +4,8 @@
 	<meta charset="{{ site.charset }}">
 	<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">{% if page.noindex %}
 	<meta content="noindex, nofollow" name="robots">{% endif %}
-	<meta content="article" name="og:type">{% if page.preview %}
-	<meta content="{{ site.url }}{{ page.preview }}" property="og:image">
-	<meta content="{{ page.preview-alt }}" property="og:image:alt">{% else %}
+	<meta content="article" name="og:type">{% if page.mf-photo %}
+	<meta content="{{ page.mf-photo }}" property="og:image">{% else %}
 	<meta content="{{ site.author-image }}?s=300" property="og:image">
 	<meta content="{{ site.author-image-alt }}" property="og:image:alt">{% endif %}
 	<meta content="{{ page.title }}" property="og:title">{% if page.description %}
@@ -21,11 +20,10 @@
 	<link href="/rss.xml" rel="alternate" title="{{ site.author }} - RSS Feed" type="application/rss+xml">
 	<link href="https://indieauth.com/auth" rel="authorization_endpoint">
 	<link href="https://tokens.indieauth.com/token" rel="token_endpoint">
-	<link href="{{ site.url }}" rel="openid.delegate">
-	<link href="https://openid.indieauth.com/openid" rel="openid.server">
-	<link href="https://webmention.io/spellacy.net/webmention" rel="webmention">
-	<link href="https://webmention.io/spellacy.net/xmlrpc" rel="pingback">
-	<title>{{ page.title }} - {{ site.name }}</title>
+	<link href="https://spellacy-pub.herokuapp.com/micropub/main" rel="micropub">
+	<link href="https://aperture.p3k.io/microsub/281" rel="microsub">{% if page.metatitle %}
+	<title>{{ page.metatitle }} - {{ site.name }}</title>{% else %}
+	<title>{{ page.title }} - {{ site.name }}</title>{% endif %}
 </head>
 
 <!--
@@ -54,10 +52,10 @@
 			<nav id="primary-navigation" aria-label="primary">
 
 				<ul>
-					<li><a href="/about-me.html">About</a></li>
-					<li><a href="/articles.html">Articles</a></li>
-					<li><a href="/links.html">Links</a></li>
-					<li><a href="/notes.html">Notes</a></li>
+					<li><a href="/about-me/">About</a></li>
+					<li><a href="/articles/">Articles</a></li>
+					<li><a href="/links/">Links</a></li>
+					<li><a href="/notes/">Notes</a></li>
 				</ul>
 
 			</nav>
@@ -68,18 +66,19 @@
 
 			<article>
 
+				{% if page.title %}
+
+				<h1>{{page.title}}</h1>
+
+				{% endif %}
+
+				{% if page.date %}
+
+				<time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
+
+				{% endif %}
+
 				{{ content }}
-
-				<nav>
-
-					<h3>An IndieWeb Webring <i class="fas fa-link"></i></h2>
-
-					<ul>
-						<li><a href="https://xn--sr8hvo.ws/%F0%9F%9A%9B%F0%9F%8F%A3%E2%99%8D%EF%B8%8F/previous">Previous Website</a></li>
-						<li><a href="https://xn--sr8hvo.ws/%F0%9F%9A%9B%F0%9F%8F%A3%E2%99%8D%EF%B8%8F/next">Next Website</a></li>
-					</ul>
-
-				</nav>
 
 			</article>
 
@@ -96,6 +95,13 @@
 			</ul>
 
 			<p><i class="fab fa-creative-commons"></i> <small>Except where otherwise noted, content on this site is licensed under <a href="{{ site.license }}" rel="license">Creative Commons Attribution 4.0 International</a>. The source code for this site may be found on <a href="{{ site.sorce-code }}">Github</a>.</small></p>
+
+			<h2><i class="fas fa-link"></i> An IndieWeb Webring</h2>
+
+			<ul>
+				<li><a href="https://xn--sr8hvo.ws/%F0%9F%9A%9B%F0%9F%8F%A3%E2%99%8D%EF%B8%8F/previous">Previous Website</a></li>
+				<li><a href="https://xn--sr8hvo.ws/%F0%9F%9A%9B%F0%9F%8F%A3%E2%99%8D%EF%B8%8F/next">Next Website</a></li>
+			</ul>
 
 			<p><small>How's my coding? Feel free to <a href="mailto:{{ site.email }}">contact me</a> if you spot any issues with my site. You can even <a href="https://github.com/michaelspellacy/michaelspellacy.github.io/issues">open an issue</a> on Github.</small></p>
 

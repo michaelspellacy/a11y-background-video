@@ -5,6 +5,10 @@ author-image-alt: The author wearing his toy space helmet.
 charset: utf-8
 description: Spell is a web developer, designer and accessibility specialist living in beautiful Allentown, PA. In his spare time, he can be found restoring retro arcade machines.
 destination: _httpdocs
+defaults:
+-
+  values:
+    layout: "default"
 email: spell@spellacy.net
 exclude: [
   readme.md,

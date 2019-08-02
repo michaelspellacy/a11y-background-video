@@ -19,7 +19,7 @@ lang: en-US
 layout: default
 license: https://creativecommons.org/licenses/by/4.0/
 markdown: kramdown
-name: Spellacy.net
+name: Michael Spellacy
 nickname: Spell
 permalink: /:title/
 role: Front-end developer, designer and accessibility specialist
@@ -32,4 +32,4 @@ social-twitter: https://twitter.com/spellacy/
 sorce-code: https://github.com/michaelspellacy/michaelspellacy.github.io
 theme-color: "#3E1D62"
 timezone: America/New_York
-url: https://spellacy.net
+url: https://michaelspellacy.com

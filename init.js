@@ -23,6 +23,8 @@ if(heroBanner) {
 	var heroBannerAll = heroBanner.getAttribute("data-banner-all");
 	var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
 	var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
+	var heroBannerDescription = heroBanner.getAttribute("data-banner-description");
+	var heroBannerCaption = heroBanner.getAttribute("data-banner-caption");
 	var heroBannerPlay = "Play Background Animation";
 	var heroBannerPause = "Pause Background Animation";
 	var heroBannerState = "paused";
@@ -36,11 +38,71 @@ if(heroBanner) {
 	heroBannerVideo.setAttribute("playsinline", "");
 	heroBannerVideo.setAttribute("disableRemotePlayback", "");
 
+	// If captions are present, then controls have to be present
+
+	if(heroBannerCaption !== null) {
+
+		heroBannerVideo.setAttribute("controls", "");
+
+	}
+
+	if(heroBannerCaption !== null || heroBannerDescription !== null) {
+
+		heroBannerVideo.setAttribute("crossorigin", "anonymous");
+
+	}
+
 	// TODO: Add fallback Image
 
 	// Add: Video
 
 	heroBanner.appendChild(heroBannerVideo);
+
+	// Add: Audio Description
+
+	if(heroBannerDescription !== null) {
+
+		var heroBannerDescValue = heroBannerDescription.split(",");
+		var n = 3;
+
+		for (var i = 0; i < heroBannerDescValue.length; i += n) {
+
+			// Append track to video
+
+			var heroBannerAudioDescription = document.createElement("track");
+			heroBannerAudioDescription.setAttribute("kind", "descriptions");
+			heroBannerAudioDescription.setAttribute("srclang", heroBannerDescValue[i+1].trim());
+			heroBannerAudioDescription.setAttribute("label", heroBannerDescValue[i+2].trim());
+			heroBannerAudioDescription.setAttribute("src", heroBannerDescValue[i].trim());
+
+			heroBannerVideo.appendChild(heroBannerAudioDescription);
+
+		}
+
+	}
+
+	// Add: Audio Description
+
+	if(heroBannerCaption !== null) {
+
+		var heroBannerCaptionValue = heroBannerCaption.split(",");
+		var n = 3;
+
+		for (var i = 0; i < heroBannerCaptionValue.length; i += n) {
+
+			// Append track to video
+
+			var heroBannerAudioCaption = document.createElement("track");
+			heroBannerAudioCaption.setAttribute("kind", "captions");
+			heroBannerAudioCaption.setAttribute("srclang", heroBannerCaptionValue[i+1].trim());
+			heroBannerAudioCaption.setAttribute("label", heroBannerCaptionValue[i+2].trim());
+			heroBannerAudioCaption.setAttribute("src", heroBannerCaptionValue[i].trim());
+
+			heroBannerVideo.appendChild(heroBannerAudioCaption);
+
+		}
+
+	}
 
 	// Create: Play/Pause Button
 
@@ -61,10 +123,14 @@ if(heroBanner) {
 
 	// Add: Play/Pause Button
 
-	// Note: The pause button should _never_ be removed from the UI. This is an important accessibility feature.
+	// Note: The pause button should _never_ be removed from the UI (unless captions present, which will add controls). This is an important accessibility feature.
 	// While script does make use of prefers-reduced-motion, we can't fully depend on it.
 
-	heroBanner.appendChild(heroBannerButton);
+	if(heroBannerCaption === null) {
+
+		heroBanner.appendChild(heroBannerButton);
+
+	}
 
 	// Event: Play/Pause Button
 
@@ -141,7 +207,14 @@ function viewPortWidth(mediaQuery) {
 	}
 
 	heroBannerVideo.load();
-	heroBannerVideo.muted = true;
+
+	// Only mute video if captions are not present (video will not autoplay under this condition)
+
+	if(heroBannerCaption === null) {
+
+		heroBannerVideo.muted = true;
+
+	}
 
 	// If cookie exists, then pause video
 
@@ -167,11 +240,15 @@ function viewPortWidth(mediaQuery) {
 
 	// Since this is decorative, let us disable the video menu.
 
-	heroBannerVideo.oncontextmenu = function(){
+	if(heroBannerDescription === null || heroBannerCaption === null) {
 
-		return false;
+		heroBannerVideo.oncontextmenu = function(){
 
-	};
+			return false;
+
+		};
+
+	}
 
 }
 

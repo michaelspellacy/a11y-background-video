@@ -3,12 +3,12 @@ localcss: init.css
 localjs: init.js
 section: video-hero-banner
 theme: minify
-metatitle: "Video Hero Banner: Simple. Accessible. Perfomant." 
+metatitle: "Video Hero Banner: Simple. Accessible. Perfomant."
 ---
 
 <!-- Begin: Video Hero Banner -->
 
-<div id="hero-banner" data-banner-desktop="hero-banner-video-lg.mp4" data-banner-mobile="hero-banner-video-sm.mp4" data-banner-media="(min-width:778px)">
+<div id="hero-banner" data-banner-desktop="hero-banner-video-lg.mp4" data-banner-caption="my-video-en.vtt, en, English, my-video-es.vtt, es, Espanol" data-banner-mobile="hero-banner-video-sm.mp4" data-banner-media="(min-width:778px)">
 
 	<h1 class="hero-banner-heading">Video Hero Banner <b>Simple. Accessible. Performant.</b></h1>
 
@@ -63,6 +63,22 @@ metatitle: "Video Hero Banner: Simple. Accessible. Perfomant."
 <p>A valid URL to your optimized video is required. Use this parameter if you wish to load in a single video for <strong>all</strong> viewports. For example: <code>data-banner-all="my-video.mp4"</code>.</p>
 
 <p><strong>Note:</strong> The <code>data-banner-mobile</code>, <code>data-banner-desktop</code> and <code>data-banner-media</code> settings are ignored when this attribute is used.</p>
+
+<h3 id="data-banner-caption">data-banner-caption</h3>
+
+<p>In the event you load a hero banner with audio, captions must be present for the hearing impaired. The parameter requires three, comma-delimited values. These are the path to the caption file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the caption. For example: <code>data-banner-caption="my-video-en.vtt, en, English"</code>.</p>
+
+<p>Multiple captions, for different languages, are also supported. For example: <code>data-banner-caption="my-video-caption-en.vtt, en, English, my-video-es.vtt, es, Espanol"</code>.</p>
+
+<p>Please note that loading captions will be the <em>only way</em> to unmate a video with audio. (This is by design.) Video with captions will also enable default video controls.</p>
+
+<h3 id="data-banner-description">data-banner-description</h3>
+
+<p>In the event you require audio descriptions for the hearing impaired, a parameter with three comma-delimited values, is required. These are the path to the audio description file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the description. For example: <code>data-banner-description="my-video-en.vtt, en, English"</code>.</p>
+
+<p>Multiple audio descriptions, for different languages, are also supported. For example: <code>data-banner-description="my-video-audio-desc-en.vtt, en, English, my-video-audio-desc-es.vtt, es, Espanol"</code>.</p>
+
+<p>Audio descriptions are not currently supported in browsers, but you can test them out using a <a href="https://chrome.google.com/webstore/detail/html5-audio-description-v/jafenodgdcelmajjnbcchlfjomlkaifp?hl=en">browser plugin</a>.</p>
 
 <h3>CSS and JavaScript</h3>
 

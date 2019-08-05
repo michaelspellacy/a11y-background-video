@@ -40,7 +40,36 @@ metatitle: "Video Hero Banner: Simple. Accessible. Perfomant."
 
 &lt;/div&gt;</code></pre>
 
-<p>Add the following parameters:</p>
+<h3>CSS and JavaScript</h3>
+
+<p>Finally, just copy the CSS (Sass) and JavaScript into your own site. You may modify as needed.</p>
+
+<ul>
+	<li><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/init.scss">View CSS (Sass)</a></li>
+	<li><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/init.js">View JavaScript</a></li>
+</ul>
+
+<p><strong>Attention:</strong> Please do not link directly to any of these assets.</p>
+
+<h2 id="accessible">Accessible</h2>
+
+<p>Not everybody likes things that move on the web. Vestibular disorders and epilepsy are but two disabilities that our work can have an adverse effect on. This is why it was important to include support for the <code>prefers-reduced-motion</code> media query. This will prevent the banner from playing if the user has enabled the reduced motion setting on their device. In the event that this <a href="https://caniuse.com/#search=prefers-reduced-motion">media query is not supported</a>, a pause button has been included in the interface. This should <strong>never</strong> be removed and may also serve to benefit short-term disabilities that may come up for your users. A win for all!</p>
+
+<p>The pause button sets a cookie called <code>heroBannerPaused</code>, which will be used by the website on return visits and on other pages within the site that utilize the same script. When the video is played, this cookie is removed.</p>
+
+<p><strong>Note:</strong> Video may not load when a device is in "Low Power Mode". This is not a bug, but a feature of the device to save power, which video can drain a lot of.</p>
+
+<h2 id="performant">Performant</h2>
+
+<p>There are a lot of different tools out there to optimize your video. For our demo, <a href="https://handbrake.fr/">HandBrake</a> was used for this task. If you would like to use this tool to optimize your own videos, then this <a href="https://www.youtube.com/watch?v=YhCHrnfqQhI">tutorial</a> is a great place to begin.</p>
+
+<p><strong>Tip:</strong> Make sure your banner videos are no more than 20-30 seconds long. The smaller in length, the better.</p>
+
+<p><strong>Note:</strong> A <a href="vhb-handbrake-preset.json" download>User Preset</a> is available to download and import into HandBrake. This may serve useful for beginners.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>The following parameters are avilable for use:</p>
 
 <h3 id="hdr-hero-banner">hero-banner</h3>
 
@@ -66,48 +95,23 @@ metatitle: "Video Hero Banner: Simple. Accessible. Perfomant."
 
 <h3 id="data-banner-caption">data-banner-caption</h3>
 
-<p>In the event you load a hero banner with audio, captions must be present for the hearing impaired. The parameter requires three, comma-delimited values. These are the path to the caption file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the caption. For example: <code>data-banner-caption="my-video-en.vtt, en, English"</code>.</p>
+<p>In the event you load a hero banner with audio, captions <strong>must</strong> be present for the hearing impaired. The parameter requires three, comma-delimited values. These are the path to the caption file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the caption. For example: <code>data-banner-caption="my-video-en.vtt, en, English"</code>.</p>
 
-<p>Multiple captions, for different languages, are also supported. For example: <code>data-banner-caption="my-video-caption-en.vtt, en, English, my-video-es.vtt, es, Espanol"</code>.</p>
+<p>Multiple captions, for different languages, are also supported. For example: <code>data-banner-caption="my-video-caption-en.vtt, en, English, my-video-caption-es.vtt, es, Espanol"</code>.</p>
 
-<p>Please note that loading captions will be the <em>only way</em> to unmate a video with audio. (This is by design.) Video with captions will also enable default video controls.</p>
+<p><strong>Note:</strong> Loading captions will be the <em>only way</em> to unmute a video with audio. (This is by design.) Video with captions will also enable default video controls.</p>
 
 <h3 id="data-banner-description">data-banner-description</h3>
 
-<p>In the event you require audio descriptions for the hearing impaired, a parameter with three comma-delimited values, is required. These are the path to the audio description file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the description. For example: <code>data-banner-description="my-video-en.vtt, en, English"</code>.</p>
+<p>In the event you require audio descriptions for the hearing impaired, a parameter with three comma-delimited values, is required. These are the path to the audio description file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the description. For example: <code>data-banner-description="my-video-description-en.vtt, en, English"</code>.</p>
 
-<p>Multiple audio descriptions, for different languages, are also supported. For example: <code>data-banner-description="my-video-audio-desc-en.vtt, en, English, my-video-audio-desc-es.vtt, es, Espanol"</code>.</p>
+<p>Multiple audio descriptions, for different languages, are also supported. For example: <code>data-banner-description="my-video-audio-description-en.vtt, en, English, my-video-audio-description-es.vtt, es, Espanol"</code>.</p>
 
-<p>Audio descriptions are not currently supported in browsers, but you can test them out using a <a href="https://chrome.google.com/webstore/detail/html5-audio-description-v/jafenodgdcelmajjnbcchlfjomlkaifp?hl=en">browser plugin</a>.</p>
-
-<h3>CSS and JavaScript</h3>
-
-<p>Finally, just copy the CSS (Sass) and JavaScript into your own site. You may modify as needed.</p>
-
-<ul>
-	<li><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/init.scss">View CSS (Sass)</a></li>
-	<li><a href="https://github.com/michaelspellacy/video-hero-banner/blob/master/init.js">View JavaScript</a></li>
-</ul>
-
-<p><strong>Attention:</strong> Please do not link directly to any of these assets.</p>
-
-<h2 id="accessible">Accessible</h2>
-
-<p>Not everybody likes things that move on the web. Vestibular disorders and epilepsy are but two disabilities that our work can have an adverse effect on. This is why it was important to include support for the <code>prefers-reduced-motion</code> media query. This will prevent the banner from playing if the user has enabled the reduced motion setting on their device. In the event that this <a href="https://caniuse.com/#search=prefers-reduced-motion">media query is not supported</a>, a pause button has been included in the interface. This should <strong>never</strong> be removed and may also serve to benefit short-term disabilities that may come up for your users. Win!</p>
-
-<p>The pause button sets a cookie called <code>heroBannerPaused</code>, which will be used by the website on return visits and on other pages within the site that utilize the same script. When the video is played, this cookie is removed.</p>
-
-<p><strong>Note:</strong> Video may not load when a device is in "Low Power Mode". This is not a bug, but a feature of the device to save power, which video can drain a lot of.</p>
-
-<h2 id="performant">Performant</h2>
-
-<p>There are a lot of different tools out there to optimize your video. For our demo, <a href="https://handbrake.fr/">HandBrake</a> was used for this task. If you would like to use this tool to optimize your own videos, then this <a href="https://www.youtube.com/watch?v=YhCHrnfqQhI">tutorial</a> is a great place to begin.</p>
-
-<p><strong>Tip:</strong> Make sure your banner videos are no more than 20-30 seconds long. The smaller in length, the better.</p>
-
-<p><strong>Note:</strong> A <a href="vhb-handbrake-preset.json" download>User Preset</a> is available to download and import into HandBrake. This may serve useful for beginners.</p>
+<p><strong>Note:</strong> Audio descriptions are not currently supported in browsers, but you can test them out using a <a href="https://chrome.google.com/webstore/detail/html5-audio-description-v/jafenodgdcelmajjnbcchlfjomlkaifp?hl=en">browser plugin</a>.</p>
 
 <h2 id="alt-layouts">Alternative Layouts</h2>
+
+<p>There are many different and unique ways you may wish to design your banners. The only limit is your imagination.</p>
 
 <ul>
 	<li><a href="alt-layout-1.html">Design 1</a></li>

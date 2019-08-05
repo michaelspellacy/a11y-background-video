@@ -17,7 +17,7 @@
 	<link href="/css/global.css" rel="stylesheet">{% if page.localcss %}
 	<link href="{{ page.localcss }}" rel="stylesheet">{% endif %}
 	<link href="/manifest.json" rel="manifest">
-	<link href="{{ page.url | replace: 'index.html','' | prepend: site.url}}" rel="canonical">
+	<link href="{{ page.url | replace: 'index.html','' | prepend: site.url}}{{ page.canonical }}" rel="canonical">
 	<link href="{{ site.author-image | replace: '.jpg', '.ico'}}?s=32" rel="icon">
 	<link href="/rss.xml" rel="alternate" title="{{ site.author }} - RSS Feed" type="application/rss+xml">
 	<link href="https://indieauth.com/auth" rel="authorization_endpoint">

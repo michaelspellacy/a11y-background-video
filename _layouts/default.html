@@ -3,8 +3,7 @@
 <head>
 	<meta charset="{{ site.charset }}">
 	<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">{% if page.noindex %}
-	<meta content="noindex, nofollow" name="robots">{% endif %}
-	<meta content="article" name="og:type">{% if page.mf-photo %}
+	<meta content="noindex, nofollow" name="robots">{% endif %}{% if page.mf-photo %}
 	<meta content="{{ page.mf-photo }}" property="og:image">{% else %}
 	<meta content="{{ site.author-image }}?s=600" property="og:image">
 	<meta content="{{ site.author-image-alt }}" property="og:image:alt">{% endif %}

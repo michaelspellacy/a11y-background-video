@@ -1,5 +1,5 @@
 // Video Hero Banner (VHB)
-// Developer: Michael Spellacy (Spell), https://spellacy.net
+// Developer: Michael Spellacy (Spell), https://michaelspellacy.com
 
 // Note: If you have a PWA, please see https://github.com/michaelspellacy/video-hero-banner/issues/7 before using
 

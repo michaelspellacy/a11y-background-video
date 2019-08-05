@@ -8,7 +8,7 @@
 	<meta content="{{ page.mf-photo }}" property="og:image">{% else %}
 	<meta content="{{ site.author-image }}?s=600" property="og:image">
 	<meta content="{{ site.author-image-alt }}" property="og:image:alt">{% endif %}
-	<meta content="{{ page.title }}" property="og:title">{% if page.description %}
+	<meta content="{{ page.title }}{{ page.metatitle }}" property="og:title">{% if page.description %}
 	<meta content="{{ page.description }}" name="description">
 	<meta content="{{ page.description }}" property="og:description">{% elsif page.layout == "micropubpost" %}
 	<meta content="{{ page.content | truncate: 220 | strip_html }}" name="description">

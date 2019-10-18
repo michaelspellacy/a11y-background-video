@@ -13,7 +13,7 @@
 	<meta content="{{ page.content | truncate: 220 | strip_html }}" name="description">
 	<meta content="{{ page.content | truncate: 220 | strip_html }}" property="og:description">{% endif %}
 	<meta content="{{ site.theme-color }}" name="theme-color">
-	<link href="https://michaelspellacy.com/css/global.css" rel="stylesheet">{% if page.localcss %}
+	<link href="/css/global.css" rel="stylesheet">{% if page.localcss %}
 	<link href="{{ page.localcss }}" rel="stylesheet">{% endif %}
 	<link href="/manifest.json" rel="manifest">{% if page.canonical %}
 	<link href="{{ page.canonical }}" rel="canonical">{% else %}
@@ -115,7 +115,7 @@
 
 	</div><!--/#page-->
 
-	{% if page.localjs %}
+	<script src="/js/global.js"></script>{% if page.localjs %}
 	<script src="{{ page.localjs }}"></script>{% endif %}
 
 </body>

@@ -10,11 +10,11 @@ theme: minify
 
 <!-- Begin: Video Hero Banner -->
 
-<div id="hero-banner" data-banner-desktop="hero-banner-video-lg.mp4" data-banner-mobile="hero-banner-video-sm.mp4" data-banner-media="(min-width:778px)">
+<div id="hero-banner" data-banner-video data-banner-desktop="hero-banner-video-lg.mp4" data-banner-mobile="hero-banner-video-sm.mp4" data-banner-media="(min-width:778px)">
 
 	<h1 class="hero-banner-heading">Video Hero Banner <b>Simple. Accessible. Performant.</b></h1>
 
-	<img id="hero-banner-image" src="hero-banner-image.jpg" alt="">
+
 
 </div>
 
@@ -77,6 +77,10 @@ theme: minify
 
 <p>This is the primary id for the CSS and JavaScript and is required.</p>
 
+<h3 id="hdr-hero-banner">hero-banner-video</h3>
+
+<p>This is the flag that the script uses to load the video. It takes no value and is required if you want the video banner to load. This is handy if you wish to use the same wrapper div on another page that does not require video.</p>
+
 <h3 id="data-banner-media">data-banner-media</h3>
 
 <p>Similar to the <code>picture</code> elements <code>media</code> attribute, a valid min or max width property and viewport size are required. Parenthesis must be included in this value. For example: <code>data-banner-media="(min-width:550px)"</code>.</p>
@@ -107,7 +111,7 @@ theme: minify
 
 <h3 id="data-banner-description">data-banner-description</h3>
 
-<p>In the event you require audio descriptions for the hearing impaired, a parameter with three comma-delimited values, is required. These are the path to the audio description file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the description. For example: <code>data-banner-description="my-video-description-en.vtt, en, English"</code>.</p>
+<p>In the event you require audio descriptions, a parameter with three comma-delimited values, is required. These are the path to the audio description file (usually a VTT), the <a href="https://www.sitepoint.com/iso-2-letter-language-codes/">ISO two letter language code</a> and a label to idendify the description. For example: <code>data-banner-description="my-video-description-en.vtt, en, English"</code>.</p>
 
 <p>Multiple audio descriptions, for different languages, are also supported. For example: <code>data-banner-description="my-video-audio-description-en.vtt, en, English, my-video-audio-description-es.vtt, es, Espanol"</code>.</p>
 

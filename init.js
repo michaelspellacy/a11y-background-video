@@ -4,10 +4,11 @@
 // Note: If you have a PWA, please see https://github.com/michaelspellacy/video-hero-banner/issues/7 before using
 
 var heroBanner = document.getElementById("hero-banner");
+var heroBannerVideo = heroBanner.getAttribute("data-banner-video");
 
 // Check if banner exists.
 
-if(heroBanner) {
+if(heroBannerVideo !== null) {
 
 	// Check Cookie. If set to true, pause video.
 
@@ -19,12 +20,12 @@ if(heroBanner) {
 
 	// Variables
 
-	var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
 	var heroBannerAll = heroBanner.getAttribute("data-banner-all");
-	var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
-	var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
-	var heroBannerDescription = heroBanner.getAttribute("data-banner-description");
 	var heroBannerCaption = heroBanner.getAttribute("data-banner-caption");
+	var heroBannerDescription = heroBanner.getAttribute("data-banner-description");
+	var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
+	var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
+	var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
 	var heroBannerPlay = "Play Background Animation";
 	var heroBannerPause = "Pause Background Animation";
 	var heroBannerState = "paused";

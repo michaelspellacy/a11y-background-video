@@ -10,15 +10,15 @@
 	<meta content="{{ page.mf-photo }}" name="twitter:image">{% else %}
 	<meta content="{{ site.author-image }}?s=600" name="twitter:image">
 	<meta content="{{ site.author-image }}?s=600" property="og:image">
-	<meta content="{{ site.author-image-alt }}" property="og:image:alt">{% endif %}
+	<meta content="{{ site.author-image-alt }}" property="og:image:alt">{% endif %}{% if page.title != "" %}
 	<meta content="{{ page.title }}{{ page.metatitle }}" property="og:title">
-	<meta content="{{ page.title }}{{ page.metatitle }}" name="twitter:title">{% if page.description %}
+	<meta content="{{ page.title }}{{ page.metatitle }}" name="twitter:title">{% endif %}{% if page.description %}
 	<meta content="{{ page.description }}" name="description">
 	<meta content="{{ page.description }}" property="og:description">
-	<meta content="{{ page.description }}" name="twitter:description">{% elsif page.layout == "micropubpost" %}
-	<meta content="{{ page.content | truncate: 220 | strip_html }}" name="description">
-	<meta content="{{ page.content | truncate: 220 | strip_html }}" property="og:description">
-	<meta content="{{ page.content | truncate: 220 | strip_html }}" name="twitter:description">{% endif %}
+	<meta content="{{ page.description }}" name="twitter:description">{% elsif page.title != "" %}
+	<meta content="{{ page.content | markdownify | strip_html | truncatewords: 20 }}" name="description">
+	<meta content="{{ page.content | markdownify | strip_html | truncatewords: 20 }}" property="og:description">
+	<meta content="{{ page.content | markdownify | strip_html | truncatewords: 20 }}" name="twitter:description">{% endif %}
 	<meta content="{{ site.theme-color }}" name="theme-color">
 	<link href="/css/global.css" rel="stylesheet">{% if page.localcss %}
 	<link href="{{ page.localcss }}" rel="stylesheet">{% endif %}
@@ -30,9 +30,10 @@
 	<link href="https://indieauth.com/auth" rel="authorization_endpoint">
 	<link href="https://tokens.indieauth.com/token" rel="token_endpoint">
 	<link href="https://michaelspellacy-com.herokuapp.com/micropub/main" rel="micropub">
+	<link href="https://aperture.p3k.io/microsub/367" rel="microsub">
 	<link href="https://webmention.herokuapp.com/api/webmention" rel="webmention">{% if page.metatitle %}
 	<title>{{ page.metatitle }} - {{ site.name }}</title>{% else %}
-	<title>{{ page.title }} - {{ site.name }}</title>{% endif %}
+	<title>{{ page.title }}{% if page.title != "" %} - {% endif %}{{ site.name }}</title>{% endif %}
 </head>
 
 <!--
@@ -75,7 +76,9 @@
 
 		<main id="content">
 
-			<article>
+		{% if page.layout == "micropubpost" %}
+
+			<article class="h-entry">
 
 				{% if page.title %}
 
@@ -83,15 +86,64 @@
 
 				{% endif %}
 
-				{% if page.date %}
+				{% if page.mf-in-reply-to %}
 
-				<time datetime="{{ page.date }}"><b>{{ page.date | date: "%B %d, %Y" }}</b></time>
+				<p><b>In Reply To:</b> <a href="{{page.mf-in-reply-to}}" class="u-in-reply-to">{{page.mf-in-reply-to}}</a></p>
 
 				{% endif %}
 
-				{{ content }}
+				<time class="dt-published" datetime="{{ page.date }}"><b>{{ page.date | date: "%B %d, %Y" }}</b></time>
+
+				<div class="e-content">
+
+					{% if page.mf-photo %}
+
+					<figure>
+
+						<img src="{{page.mf-photo}}" alt="" class="post-img">
+
+					</figure>
+
+					<!-- figcaption></figcaption -->
+
+					{% endif %}
+
+					{{ content }}
+
+				</div>
 
 			</article>
+
+			<div class="u-author h-card">
+
+				<img src="{{ site.author-image }}?s=50" class="u-photo" alt="{{ site.author }}">
+
+				<a href="{{ site.url }}" class="u-url p-name">{{ site.author }} ({{ site.nickname }})</a>
+
+			</div>
+
+			<script id="webmention-hosted">
+
+			(function () {
+
+				var sn = document.createElement("script"), s = document.getElementsByTagName("script")[0], url;
+				url = document.querySelectorAll ? document.querySelectorAll("link[rel~=canonical]") : false;
+				url = url && url[0] ? url[0].href : false;
+				sn.type = "text/javascript"; sn.async = true;
+				sn.src = "https://webmention.herokuapp.com/api/embed?url=" + encodeURIComponent(url || window.location);
+				s.parentNode.insertBefore(sn, s);
+
+			}());
+
+			</script>
+
+			{% else %}
+
+			<h1>{{page.title}}</h1>
+
+			{{ content }}
+
+			{% endif %}
 
 		</main>
 

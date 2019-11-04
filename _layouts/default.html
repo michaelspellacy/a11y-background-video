@@ -80,7 +80,7 @@
 
 			<article class="h-entry">
 
-				{% if page.title %}
+				{% if page.title != "" %}
 
 				<h1>{{page.title}}</h1>
 
@@ -88,11 +88,9 @@
 
 				{% if page.mf-in-reply-to %}
 
-				<p><b>In Reply To:</b> <a href="{{page.mf-in-reply-to}}" class="u-in-reply-to">{{page.mf-in-reply-to}}</a></p>
+				<p class="reply-to">Reply to <a href="{{page.mf-in-reply-to}}" class="u-in-reply-to">{{page.mf-in-reply-to}}</a></p>
 
 				{% endif %}
-
-				<time class="dt-published" datetime="{{ page.date }}"><b>{{ page.date | date: "%B %d, %Y" }}</b></time>
 
 				<div class="e-content">
 
@@ -112,15 +110,25 @@
 
 				</div>
 
+				<p class="u-author h-card">
+
+					<img src="{{ site.author-image }}?s=50" class="u-photo" alt="{{ site.author }}">
+
+					Published by <a href="{{ site.url }}" class="u-url p-name">{{ site.author }} ({{ site.nickname }})</a> on <a href="/{{page.slug}}" class="u-url"><time class="dt-published" datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</a></time>
+
+				</p>
+
 			</article>
 
-			<div class="u-author h-card">
+			<form method="post" class="webmention-send" action="https://telegraph.p3k.io/webmention">
 
-				<img src="{{ site.author-image }}?s=50" class="u-photo" alt="{{ site.author }}">
+				<label for="source">Have a reply, or comment? Send your URL:</label>
+				<input type="url" id="source" name="source">
+				<input type="hidden" name="token" value="PSYxM7GRDQzEaN3La4Xuh2RzlVKoL2Gc">
+				<input type="hidden" name="target" value="{{site.url}}/{{page.slug}}/">
+				<input type="submit" value="Send Webmention">
 
-				<a href="{{ site.url }}" class="u-url p-name">{{ site.author }} ({{ site.nickname }})</a>
-
-			</div>
+			</form>
 
 			<script id="webmention-hosted">
 
@@ -143,7 +151,7 @@
 
 			<h1>{{page.title}}</h1>
 
-			}
+			{% endif %}
 
 			{{ content }}
 

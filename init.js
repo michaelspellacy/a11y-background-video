@@ -232,6 +232,7 @@ function viewPortWidth(mediaQuery) {
 	if(heroBanner.classList.contains("paused")) {
 
 		heroBannerVideo.pause();
+		heroBannerButton.setAttribute("aria-label", heroBannerPlay);
 
 	} else {
 

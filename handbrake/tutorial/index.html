@@ -16,38 +16,64 @@ max-width: 966px;
 
 <p>This is a brief overview of the steps one might take to produce a more performance friendly video banner using HandBrake, though this lesson can be used to optimize many other types of web based videos.</p>
 
-<p>The performance of our work contributes to the the overall experience users have, so it is very important to deliver assets that will not hinder that experience. HandBrake is terrific for this task and can be <a href="https://handbrake.fr/downloads.php">downloaded</a> and used on all popular desktop operating systems.</p>
+<p>The performance of our work contributes to the overall experience users have, so it is very important to deliver assets that will not hinder that experience. HandBrake is terrific for this task and can be <a href="https://handbrake.fr/downloads.php">downloaded</a> and used on all popular desktop operating systems.</p>
 
-<h2>Step 1 - Summary</h2>
+<h2 id="step-1">Step 1 - Summary</h2>
 
 <img src="step-1-summary.png" alt="">
 
 <ol>
   <li>Open your source video. HandbBrake is capable of opening up many different kinds of video types.</li>
-  <li>Doublecheck the duration of the video. The size of the video will contribute to overall file size, so we generally reccomend a video no longer than 30 seonds.</li>
-  <li>Ensure they your output format is MP4. This has pretty much become the defacto standard for web based video.</li>
-  <li>Make sure the "Web Optimized" checkbox is clicked on. This will help greatly with streaming the video over networks.</li>
+  <li>Doublecheck the duration of the video. The size of the video will contribute to overall file size, so a video no longer than 30 seconds for banners is usually recommended.</li>
+  <li>Ensure that your output container is "MP4". This format has pretty much become the de facto standard for web based video.</li>
+  <li>Make sure the "Web Optimized" checkbox is clicked on. This will help improve streaming of the video over networks.</li>
+  <li>Create a new file name and choose an output path.</li>
 </ol>
 
-<h2>Step 2 - Dimensions</h2>
+<h2 id="step-3">Step 2 - Dimensions</h2>
 
 <img src="step-2-dimensions.png" alt="">
 
-<h2>Step 3 - Video</h2>
+<ol>
+  <li>Choose a median dimension for your video. The larger your video dimension are, the larger the file size will be.</li>
+  <li><b>1280 x 720</b> is considered a decent target for desktop, while half this size should be considered if a version for mobile is to be created.</li>
+  <li>These are not fixed dimensions, but guidelines. Different sizes are okay, but should stay as near to these ranges as possible.</li>
+  <li>Videos that are not banners may demand different dimansions.</li>
+</ol>
+
+<h2 id="step-43">Step 3 - Video</h2>
 
 <img src="step-3-video.png" alt="">
 
-<h2>Step 4 - Audio</h2>
+<ol>
+  <li>Select the quality of your video. A default range of 20 is generally good, but has little impact on file size.</li>
+  <li>A range between <b>26</b> and <b>28</b> can usually be depended upon to deliver good quality video, with reduced file size.</li>
+  <li>For desktop, we should be shooting for <b>2-3MB</b> in file size. A mobile version of the video, if needed, should obviously be smaller.</li>
+</ol>
 
-<img src=step-4-audio.png"" alt="">
+<h2 id="step-4">Step 4 - Audio</h2>
 
-<h2>Step 5 - Encode. Wash. Rinse. Repeat.</h2>
+<img src="step-4-audio.png" alt="">
+
+<ol>
+  <li>Video banners, in order to auto-play, must be muted. If no audio track is required, then it can safely be deleted, which will reduce file size further.</li>
+  <li>If your banner has sound, then it cannot auto-play. However, you can optimize your audio track further by reducing the audio bitrate to 128KB, which is adequate for most audio playback.</li>
+</ol>
+
+<p><b>Note:</b> A bitrate is number of bits per second that can be transmitted along a digital network.</p>
+
+<h2 id="step-5">Step 5 - Encode. Wash. Rinse. Repeat.</h2>
 
 <img src="step-5-encode.png" alt="">
 
+<ol>
+  <li>You are done! Now you may output your video!</li>
+  <li>You may need to experiment with different ranges and other settings until you are satisfied with the quality of the video and file size.</li>
+</ol>
+
 <h2>Output Examples</h2>
 
-<h3>Original</h3>
+<h3>Original Video</h3>
 
 <ul>
   <li><b>Video Dimensions:</b> 1280 x 720</li>
@@ -57,7 +83,7 @@ max-width: 966px;
 
 <video aria-label="Original Video Output" preload="none" poster="output-original.png" controls src="output-original.mp4"></video>
 
-<h3>Optimized</h3>
+<h3>Optimized Video</h3>
 
 <ul>
   <li><b>Video Dimensions:</b> 1280 x 720</li>
@@ -66,13 +92,3 @@ max-width: 966px;
 </ul>
 
 <video aria-label="Optimized Video Output" preload="none" poster="output-optimized.png" controls src="output-optimized.mp4"></video>
-
-<h3>Optimized (Highest Video Setting)</h3>
-
-<ul>
-  <li><b>Video Dimensions:</b> 1280 x 720</li>
-  <li><b>Constant Quality:</b> 51 (Highest)</li>
-  <li><b>Output Size:</b> 304KB</li>
-</ul>
-
-<video aria-label="Distorted Video Output" preload="none" controls poster="output-fractals.png" src="output-fractals.mp4"></video>

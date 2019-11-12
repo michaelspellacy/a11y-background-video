@@ -20,7 +20,7 @@
 	<meta content="{{ page.content | markdownify | strip_html | truncatewords: 20 }}" property="og:description">
 	<meta content="{{ page.content | markdownify | strip_html | truncatewords: 20 }}" name="twitter:description">{% endif %}
 	<meta content="{{ site.theme-color }}" name="theme-color">
-	<link href="https://michaelspellacy.com/css/global.css" rel="stylesheet">{% if page.localcss %}
+	<link href="/css/global.css" rel="stylesheet">{% if page.localcss %}
 	<link href="{{ page.localcss }}" rel="stylesheet">{% endif %}
 	<link href="/manifest.json" rel="manifest">{% if page.canonical %}
 	<link href="{{ page.canonical }}" rel="canonical">{% else %}
@@ -207,7 +207,7 @@
 
 	</div><!--/#page-->
 
-	<script src="https://michaelspellacy.com/js/global.js"></script>{% if page.localjs %}
+	<script src="/js/global.js"></script>{% if page.localjs %}
 	<script src="{{ page.localjs }}"></script>{% endif %}
 	<script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
 

@@ -20,7 +20,7 @@
 	<meta content="{{ page.content | markdownify | strip_html | truncatewords: 20 }}" property="og:description">
 	<meta content="{{ page.content | markdownify | strip_html | truncatewords: 20 }}" name="twitter:description">{% endif %}
 	<meta content="{{ site.theme-color }}" name="theme-color">
-	<link href="/css/global.css" rel="stylesheet">{% if page.localcss %}
+	<link href="https://michaelspellacy.com/css/global.css" rel="stylesheet">{% if page.localcss %}
 	<link href="{{ page.localcss }}" rel="stylesheet">{% endif %}
 	<link href="/manifest.json" rel="manifest">{% if page.canonical %}
 	<link href="{{ page.canonical }}" rel="canonical">{% else %}
@@ -86,9 +86,35 @@
 
 				{% endif %}
 
+				<p class="u-author h-card">
+
+					<img src="{{ site.author-image }}?s=50" class="u-photo" alt="{{ site.author }}">
+
+					Published by <a href="{{ site.url }}" class="u-url p-name">{{ site.author }} ({{ site.nickname }})</a> on <a href="/{{page.slug}}" class="u-url"><time class="dt-published" datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</a></time>
+
+				</p>
+
 				{% if page.mf-in-reply-to %}
 
 				<p class="reply-to">Reply to <a href="{{page.mf-in-reply-to}}" class="u-in-reply-to">{{page.mf-in-reply-to}}</a></p>
+
+				{% endif %}
+
+				{% if page.mf-bookmark-of %}
+
+				<p class="reply-to">Bookmark of <a href="{{page.mf-bookmark-of}}" class="u-bookmark-of">{{page.mf-bookmark-of}}</a></p>
+
+				{% endif %}
+
+				{% if page.mf-repost-of %}
+
+				<p class="reply-to">Repost of <a href="{{page.mf-repost-of}}" class="u-repost-of">{{page.mf-repost-of}}</a></p>
+
+				{% endif %}
+
+				{% if page.mf-like-of %}
+
+				<p class="reply-to"><span aria-hidden="true">❤️</span> Like of <a href="{{page.mf-like-of}}" class="u-like-of">{{page.mf-like-of}}</a></p>
 
 				{% endif %}
 
@@ -110,23 +136,15 @@
 
 				</div>
 
-				<p class="u-author h-card">
-
-					<img src="{{ site.author-image }}?s=50" class="u-photo" alt="{{ site.author }}">
-
-					Published by <a href="{{ site.url }}" class="u-url p-name">{{ site.author }} ({{ site.nickname }})</a> on <a href="/{{page.slug}}" class="u-url"><time class="dt-published" datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</a></time>
-
-				</p>
-
 			</article>
 
 			<form method="post" class="webmention-send" action="https://telegraph.p3k.io/webmention">
 
 				<label for="source">Have a reply, or comment? Send your URL:</label>
-				<input type="url" id="source" name="source">
+				<input type="url" placeholder="https://your-site.com/your-reply/" id="source" name="source" required>
 				<input type="hidden" name="token" value="PSYxM7GRDQzEaN3La4Xuh2RzlVKoL2Gc">
 				<input type="hidden" name="target" value="{{site.url}}/{{page.slug}}/">
-				<input type="submit" value="Send Webmention">
+				<button type="submit">Send Webmention</button>
 
 			</form>
 
@@ -164,6 +182,7 @@
 			<ul id="social">
 				<li><a href="mailto:{{ site.email }}" rel="me"><i class="fas fa-envelope"></i> Email</a></li>
 				<li><a href="{{ site.social-github }}" rel="me"><i class="fab fa-github"></i> Github</a></li>
+				<li><a href="{{ site.social-instagram }}" rel="me"><i class="fab fa-instagram"></i> Instagram</a></li>
 				<li><a href="{{ site.social-linkedin }}" rel="me"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
 				<li><a href="{{ site.social-mastodon }}" rel="me"><i class="fab fa-mastodon"></i> Mastodon</a></li>
 				<li><a href="/rss.xml"><i class="fas fa-rss-square"></i> RSS</a></li>
@@ -188,8 +207,9 @@
 
 	</div><!--/#page-->
 
-	<script src="/js/global.js"></script>{% if page.localjs %}
+	<script src="https://michaelspellacy.com/js/global.js"></script>{% if page.localjs %}
 	<script src="{{ page.localjs }}"></script>{% endif %}
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
 
 </body>
 </html>

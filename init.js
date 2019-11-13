@@ -234,7 +234,7 @@ function viewPortWidth(mediaQuery) {
 
 		heroBannerVideo.pause();
 		heroBannerVideo.setAttribute("preload", "none");
-		heroBannerVideo.setAttribute("style", "background-size: cover;");
+		heroBannerVideo.setAttribute("style", "object-fit: fill;");
 		heroBannerVideo.setAttribute("poster", heroBannerImage.src);
 		heroBannerButton.setAttribute("aria-label", heroBannerPlay);
 

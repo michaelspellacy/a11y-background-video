@@ -24,6 +24,7 @@ if(heroBannerVideo !== null) {
 	var heroBannerCaption = heroBanner.getAttribute("data-banner-caption");
 	var heroBannerDescription = heroBanner.getAttribute("data-banner-description");
 	var heroBannerDesktop = heroBanner.getAttribute("data-banner-desktop");
+	var heroBannerImage = document.getElementById("hero-banner-image");
 	var heroBannerMedia = heroBanner.getAttribute("data-banner-media");
 	var heroBannerMobile = heroBanner.getAttribute("data-banner-mobile");
 	var heroBannerPlay = "Play Background Animation";
@@ -139,7 +140,7 @@ if(heroBannerVideo !== null) {
 
 		if (heroBanner.classList.contains(heroBannerState)) {
 
-			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Secure; path=/;";
+			document.cookie = "heroBannerPaused=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
 			playVideo();
 
@@ -147,7 +148,7 @@ if(heroBannerVideo !== null) {
 
 			pauseVideo();
 
-			document.cookie = "heroBannerPaused=true; Secure; path=/";
+			document.cookie = "heroBannerPaused=true; path=/";
 
 		}
 
@@ -232,6 +233,8 @@ function viewPortWidth(mediaQuery) {
 	if(heroBanner.classList.contains("paused")) {
 
 		heroBannerVideo.pause();
+		heroBannerVideo.setAttribute("preload", "none");
+		heroBannerVideo.setAttribute("poster", heroBannerImage.src);
 		heroBannerButton.setAttribute("aria-label", heroBannerPlay);
 
 	} else {

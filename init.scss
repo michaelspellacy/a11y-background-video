@@ -69,6 +69,7 @@ position: relative;
 
 #hero-banner-video, #hero-banner-image  {
 left: 0;
+object-fit: fill;
 opacity: 0.8; // Video is dark by default for improved legibility. Remove at own risk.
 position: absolute;
 top: 0;

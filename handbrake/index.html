@@ -27,7 +27,7 @@ max-width: 966px;
 <ol>
   <li>Open your source video. HandbBrake is capable of opening up many different kinds of video types.</li>
   <li>Doublecheck the duration of the video. The length of the video will contribute to overall file size, so a video no longer than 30 seconds for banners is usually recommended.</li>
-  <li>Ensure that your output container is <b>MP4</b>. This format has pretty much become the de facto standard for web based video.</li>
+  <li>Ensure that your output container is <b>MP4</b>. This format has pretty much become the de facto standard for web based video. VHB will <a href="https://github.com/michaelspellacy/video-hero-banner/issues/10">suppoprt WebM</a>, another popular and more effecient video format, soon.</li>
   <li>Make sure the <b>Web Optimized</b> checkbox is clicked on. This will help improve streaming of the video over slower networks.</li>
   <li>Create a new file name and choose an output path.</li>
 </ol>
@@ -50,6 +50,7 @@ max-width: 966px;
 <ol>
   <li>Select the quality of your video. A default range of <b>20</b> is generally good, but has little impact on file size.</li>
   <li>A range between <b>26</b> and <b>28</b> can usually be depended upon to deliver good quality video, with a reduced file size.</li>
+  <li>Adjust <b>Encoder Options</b> to <b>Placebo</b>. This trades off compression effeciency against encoding speed and may improve file size without sacrificing quality.</li>
   <li>For desktop, we should be shooting for <b>2-3MB</b> in file size. A mobile version of the video, if needed, should obviously be smaller.</li>
 </ol>
 

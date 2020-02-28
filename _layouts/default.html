@@ -90,7 +90,7 @@
 
 					<img src="{{ site.author-image }}?s=50" class="u-photo" alt="{{ site.author }}">
 
-					Published by <a href="{{ site.url }}" class="u-url p-name">{{ site.author }} ({{ site.nickname }})</a> on <a href="/{{page.slug}}" class="u-url"><time class="dt-published" datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</a></time>
+					Published by <a href="{{ site.url }}" class="u-url p-name">{{ site.author }} ({{ site.nickname }})</a> on <time class="dt-published" datetime="{{ page.date  | date: "%Y-%m-%d %H:%M" }}">{{ page.date | date: "%B %d, %Y" }}</time>
 
 				</p>
 
@@ -140,7 +140,7 @@
 
 			<form method="post" class="webmention-send" action="https://telegraph.p3k.io/webmention">
 
-				<label for="source">Have a reply, or comment? Send your URL:</label>
+				<label for="source">Have a reply, or comment? Send your URL (<a href="/webmentions/">Learn More</a>):</label>
 				<input type="url" placeholder="https://your-site.com/your-reply/" id="source" name="source" required>
 				<input type="hidden" name="token" value="PSYxM7GRDQzEaN3La4Xuh2RzlVKoL2Gc">
 				<input type="hidden" name="target" value="{{site.url}}/{{page.slug}}/">
@@ -155,7 +155,7 @@
 				var sn = document.createElement("script"), s = document.getElementsByTagName("script")[0], url;
 				url = document.querySelectorAll ? document.querySelectorAll("link[rel~=canonical]") : false;
 				url = url && url[0] ? url[0].href : false;
-				sn.type = "text/javascript"; sn.async = true;
+				sn.async = true;
 				sn.src = "https://webmention.herokuapp.com/api/embed?url=" + encodeURIComponent(url || window.location);
 				s.parentNode.insertBefore(sn, s);
 
@@ -209,7 +209,6 @@
 
 	<script src="/js/global.js"></script>{% if page.localjs %}
 	<script src="{{ page.localjs }}"></script>{% endif %}
-	<script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"></script>
 
 </body>
 </html>
